@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cyber Security Portfolio</title>
+  <meta name="description" content="Cyber security portfolio." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cyber Security Portfolio" />
+  <meta property="og:description" content="Research-oriented portfolio." />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/assets/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cyber Security Portfolio" />
+  <meta name="twitter:description" content="Research-oriented portfolio." />
+  <meta name="twitter:image" content="https://example.com/assets/og-image.png" />
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data (will be updated from PROFILE by JS) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"YOUR_NAME",
+    "jobTitle":"Cyber Security Researcher",
+    "url":"https://example.com/",
+    "sameAs":[
+      "https://github.com/supriyo-guha",
+      "https://github.com/supriyo-guha/Offensive-Adversary-Simulation-Critical-Infrastructures"
+    ],
+    "knowsAbout":[
+      "Offensive Simulation",
+      "Adversary Simulation",
+      "IT-OT Security",
+      "Threat Modeling",
+      "Security Research Methodology"
+    ],
+    "alumniOf":[
+      {"@type":"CollegeOrUniversity","name":"Birla Institute of Technology & Science (BITS), Pilani"},
+      {"@type":"CollegeOrUniversity","name":"Himalayan University"}
+    ]
+  }
+  </script>
+
+  <style>
+    body { scroll-behavior: smooth; transition: background-color .25s ease, color .25s ease; }
+    .hero{
+      background:
+        radial-gradient(1100px 520px at 12% 10%, rgba(13,110,253,.23), transparent 60%),
+        radial-gradient(900px 420px at 88% 20%, rgba(32,201,151,.14), transparent 55%);
+    }
+    .section{ scroll-margin-top: 90px; }
+    .glass{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .logo{
+      width: 54px; height: 54px; object-fit: contain;
+      background: rgba(255,255,255,.90);
+      border-radius: 14px;
+      padding: 6px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .tag{
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      font-size: .92rem;
+    }
+    .card-hover:hover{ transform: translateY(-2px); transition: .2s; }
+    .muted{ opacity:.78; }
+    .small-muted{ opacity:.68; font-size:.92rem; }
+    .kbdish{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    html[data-bs-theme="light"] .glass{
+      background: rgba(0,0,0,.03);
+      border: 1px solid rgba(0,0,0,.10);
+    }
+    html[data-bs-theme="light"] .tag{
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(0,0,0,.03);
+    }
+
+    /* Navbar glass */
+    .navbar-glass{
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.55);
+    }
+    html[data-bs-theme="light"] .navbar-glass{
+      background: rgba(255,255,255,.80);
+    }
+
+    /* Cert logo */
+    .cert-logo{
+      width: 46px; height: 46px; object-fit: contain;
+      background: rgba(255,255,255,.92);
+      border-radius: 12px;
+      padding: 6px;
+      border: 1px solid rgba(0,0,0,.08);
+      flex: 0 0 auto;
+    }
+    .cert-item{
+      display:flex; gap:12px; align-items:center;
+    }
+    .justified-text {
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+  </style>
+
+  <!-- =========================
+       ONE PLACE TO UPDATE DETAILS
+  ========================== -->
+  <script>
+    const PROFILE = {
+      // Identity
+      name: "Supriyo Guha", // e.g., "Supriyo Guha" or initials
+      heroTitle: "Information Security Portfolio",
+      tagline: "Offensive Security Research • Adversary Simulation • Hybrid IT–OT Security",
+      shortIntro:
+        "Research-oriented Information Security portfolio focused on offensive security, adversary simulation, as a research instrument, and hybrid IT–OT security. Public content is sanitized and non-operational.",
+
+      // Links
+      githubUsername: "supriyo-guha",
+      githubProfileUrl: "https://github.com/supriyo-guha",
+      linkedinUrl: "https://www.linkedin.com/in/supriyo-guha",
+      linkedinIsPrivate: true, // true = show "Private (shared on request)" in Contact; still keeps navbar/hero button
+      googleScholarUrl: "https://scholar.google.com/citations?user=DEMO_ID", // demo placeholder, replace later
+      siteUrl: "https://supriyo-guha.github.io/portfolio", // your GitHub Pages URL
+      email: "YOUR_EMAIL", // set "" to hide
+
+      // Primary repos
+      researchRepo: {
+        title: "Offensive Adversary Simulation — Critical Infrastructures",
+        url: "https://github.com/supriyo-guha/Offensive-Adversary-Simulation-Critical-Infrastructures",
+        description:
+          "Research repository aligned to the dissertation: adversary simulation, IT–OT architectures, threat modeling, and measurement ideas.",
+        tags: ["Research", "IT–OT", "Simulation", "Threat Modeling", "Measurement"]
+      },
+      btechProjectRepo: {
+        title: "Advanced Keylogger (Academic Project)",
+        url: "https://github.com/supriyo-guha/advance-keylogger-project",
+        description:
+          "B.Tech project repository shared for academic completeness. Ensure public content remains sanitized and policy-compliant.",
+        tags: ["B.Tech Project", "Software Project"]
+      },
+
+      // Education timeline
+      education: [
+        {
+          level: "M.Tech",
+          title: "M.Tech — Software Systems (Specialization in Security)",
+          institute: "Birla Institute of Technology & Science (BITS), Pilani — WILP Division",
+          highlightLabel: "Dissertation",
+          highlightValue: "Offensive Simulation of Critical Infrastructures",
+          logoUrl: "https://cdn.scholaro.com/logos/772527-239308-3518176581.png"
+        },
+        {
+          level: "B.Tech",
+          title: "B.Tech — Computer Science",
+          institute: "Himalayan University",
+          highlightLabel: "Project",
+          highlightValue: "Advanced Keylogger",
+          highlightLink: "https://github.com/supriyo-guha/advance-keylogger-project",
+          logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Himalayan-University.png/250px-Himalayan-University.png"
+        },
+        {
+          level: "Higher Secondary Education (Class XII)",
+          title: "Higher Secondary Education (Class XII)",
+          institute: "Raiganj Sri Sri Ramkrishna Vidya Bhawan",
+          highlightLabel: "Stream",
+          highlightValue: "Science (Mathematics, Physics, Chemistry, Computer Science)",
+          logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRf7h4RMu7qFQZEK8fLowtiuRT6Iy6opi_cQ&s"
+        },
+        {
+          level: "Secondary Education (Class X)",
+          title: "Secondary Education (Class X)",
+          institute: "Raiganj Coronation High School",
+          logoUrl: "https://upload.wikimedia.org/wikipedia/en/3/39/Raiganj_Coronation.png"
+        }
+      ],
+
+      // Honors & Awards
+      honors: [
+        { title: "EC-Council CEH Hall of Fame 2025", subtitle: "Top 100 Global Honoree" },
+        { title: "Indian Army Cyber Security Hackathon", subtitle: "Sainya-Ranakshetram 2021 — Finalist" },
+        { title: "Advent of Cyber 4 (TryHackMe)", subtitle: "2022 — Rank: 160251" }
+      ],
+
+      // Certifications (with logos)
+      // NOTE: Replace logoUrl with your preferred official logo images (host locally in /assets/ if you want)
+      certifications: [
+        { name: "CRTA", issuer: "CyberWarFare Labs", logoUrl: "https://cyberwarfare.live/wp-content/uploads/2024/04/CRTA-150x150.png" },
+        { name: "CRT-ID", issuer: "CyberWarFare Labs", logoUrl: "https://cyberwarfare.live/wp-content/uploads/2024/04/CRT-ID-150x150.png" },
+        { name: "CEH Master", issuer: "EC-Council", logoUrl: "https://johnjhacking.com/uploads/cehmaster_5fb43496785f-002.png" },
+        { name: "CEH", issuer: "EC-Council", logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9qJY-b9kr7UABo4jLxXHOFaFMI0-CYZPQ&s" },
+        { name: "CHFI", issuer: "EC-Council", logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy9KTeIkazB15qiP5vebDP_rBAiNiQ27O2NQ&s" },
+        { name: "CCNA", issuer: "Cisco", logoUrl: "https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/twitter_thumb_201604_ccna_600.png" }
+      ],
+
+      // SEO
+      seo: {
+        title: "Cyber Security Portfolio | Offensive Simulation • Adversary Research • IT–OT",
+        description:
+          "Cyber security portfolio featuring academic background (BITS Pilani M.Tech, Himalayan University B.Tech), research on offensive simulation of critical infrastructures, selected projects, honors & awards, and certifications.",
+        ogImagePath: "/assets/og-image.png" // optional; add later
+      }
+    };
+  </script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg sticky-top border-bottom navbar-glass">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#top">
+        <i class="bi bi-shield-lock me-2"></i><span id="brandText">Portfolio</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-1 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Honours</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certs">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+          <!-- LinkedIn -->
+          <li class="nav-item ms-lg-2">
+            <a id="linkedinNav" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </li>
+
+          <!-- Google Scholar (demo) -->
+          <li class="nav-item ms-lg-2">
+            <a id="scholarNav" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener" aria-label="Google Scholar">
+              <i class="bi bi-mortarboard"></i>
+            </a>
+          </li>
+
+          <!-- Theme toggle -->
+          <li class="nav-item ms-lg-2">
+            <button id="themeToggle" class="btn btn-sm btn-outline-secondary" type="button" aria-label="Toggle theme">
+              <i class="bi bi-moon-stars" id="themeIcon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero py-5 border-bottom section">
+    <div class="container py-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold mb-3" id="heroTitle">Cyber Security Portfolio</h1>
+          <p class="lead muted mb-3" id="heroTagline"></p>
+
+          <div class="d-flex flex-wrap gap-2 mb-4" id="heroTags"></div>
+
+          <p class="muted mb-4" id="heroIntro"></p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg" href="#projects"><i class="bi bi-folder2-open me-2"></i>View Projects</a>
+            <a class="btn btn-outline-secondary btn-lg" id="researchRepoBtn" target="_blank" rel="noopener">
+              <i class="bi bi-github me-2"></i>Research Repo
+            </a>
+            <a class="btn btn-outline-secondary btn-lg" id="githubProfileBtn" target="_blank" rel="noopener">
+              <i class="bi bi-person-badge me-2"></i>GitHub Profile
+            </a>
+            <a class="btn btn-outline-secondary btn-lg" id="linkedinHeroBtn" target="_blank" rel="noopener">
+              <i class="bi bi-linkedin me-2"></i>LinkedIn
+            </a>
+            <a class="btn btn-outline-secondary btn-lg" id="scholarHeroBtn" target="_blank" rel="noopener">
+              <i class="bi bi-mortarboard me-2"></i>Google Scholar
+            </a>
+          </div>
+
+          <!--div class="alert glass mt-4 mb-0" role="alert">
+            <strong>Professional note:</strong>
+            Due to the sensitive nature of professional engagements, operational artifacts and real-world implementation details are not publicly disclosed.
+            This site focuses on research-oriented abstractions and academic exploration.
+          </div-->
+        </div>
+
+        <div class="col-lg-5">
+          <div class="p-4 rounded-4 glass">
+            <h2 class="h5 fw-bold mb-3"><i class="bi bi-search me-2"></i>Quick Overview</h2>
+            <ul class="mb-0 muted" id="quickOverview"></ul>
+            <hr class="my-3" />
+            <p class="small-muted mb-0">
+              Built for professors/research labs to quickly assess research direction, discipline, and documented work.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="py-5 section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <h2 class="h3 fw-bold mb-3">About</h2>
+          <p class="muted mb-0 justified-text" id="aboutText"></p>
+        </div>
+        <div class="col-lg-4">
+          <div class="p-4 rounded-4 glass h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div class="rounded-4 d-flex align-items-center justify-content-center" style="width:56px;height:56px;background: rgba(13,110,253,.18);">
+                <i class="bi bi-mortarboard fs-3"></i>
+              </div>
+              <div>
+                <div class="fw-bold">Academic Track</div>
+                <div class="small-muted" id="aboutAcademic"></div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="d-flex align-items-center gap-3">
+              <div class="rounded-4 d-flex align-items-center justify-content-center" style="width:56px;height:56px;background: rgba(32,201,151,.18);">
+                <i class="bi bi-award fs-3"></i>
+              </div>
+              <div>
+                <div class="fw-bold">Recognition</div>
+                <div class="small-muted" id="aboutRecognition"></div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="small-muted d-flex flex-column gap-1">
+              <div><i class="bi bi-linkedin me-2"></i><span id="linkedinNote"></span></div>
+              <div><i class="bi bi-mortarboard me-2"></i><span id="scholarNote"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Research</h2>
+      <p class="muted col-lg-10" id="researchText"></p>
+
+      <div class="row g-3 mt-2" id="researchCards"></div>
+
+      <div class="alert glass mt-4 mb-0">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <div>
+            <strong>Research Repository:</strong>
+            <span class="kbdish" id="researchRepoName"></span>
+          </div>
+          <a class="btn btn-outline-secondary btn-sm" id="researchRepoLink" target="_blank" rel="noopener">
+            <i class="bi bi-box-arrow-up-right me-2"></i>Open Repo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-5 section">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Education</h2>
+      <div class="row g-3" id="educationGrid"></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Projects & Repositories</h2>
+      <div class="row g-3 mt-2" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="py-5 section">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Honours & Awards</h2>
+      <div class="row g-3" id="honorsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Certifications</h2>
+      <div class="row g-3" id="certsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 section">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-3">Contact</h2>
+
+      <div class="card border-0 glass rounded-4">
+        <div class="card-body p-4">
+          <p class="muted mb-4">
+            If you are a faculty member / researcher interested in adversary simulation in hybrid IT–OT systems, feel free to reach out.
+          </p>
+
+          <div class="row g-3">
+            <div class="col-lg-3" id="emailCard"></div>
+
+            <div class="col-lg-3">
+              <div class="p-3 rounded-4 glass">
+                <div class="small-muted">GitHub</div>
+                <div class="fw-semibold">
+                  <a class="link-underline link-underline-opacity-0" id="contactGithub" target="_blank" rel="noopener"></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3" id="linkedinCard"></div>
+            <div class="col-lg-3" id="scholarCard"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="small-muted">
+        © <span id="y"></span> • Research-oriented portfolio • Sanitized public content
+      </div>
+      <a class="small-muted link-underline link-underline-opacity-0" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* =========================
+       THEME TOGGLE
+    ========================== */
+    const htmlElement = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+
+    function updateIcon(theme){
+      if(theme === "dark"){
+        icon.className = "bi bi-moon-stars";
+        toggleBtn.classList.remove("btn-outline-dark");
+        toggleBtn.classList.add("btn-outline-secondary");
+      } else {
+        icon.className = "bi bi-sun";
+        toggleBtn.classList.remove("btn-outline-secondary");
+        toggleBtn.classList.add("btn-outline-dark");
+      }
+    }
+
+    (function initTheme(){
+      const savedTheme = localStorage.getItem("theme");
+      if(savedTheme){
+        htmlElement.setAttribute("data-bs-theme", savedTheme);
+        updateIcon(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = prefersDark ? "dark" : "light";
+        htmlElement.setAttribute("data-bs-theme", theme);
+        updateIcon(theme);
+      }
+    })();
+
+    toggleBtn.addEventListener("click", () => {
+      const current = htmlElement.getAttribute("data-bs-theme");
+      const next = current === "dark" ? "light" : "dark";
+      htmlElement.setAttribute("data-bs-theme", next);
+      localStorage.setItem("theme", next);
+      updateIcon(next);
+    });
+
+    /* =========================
+       SEO META UPDATE (from PROFILE)
+    ========================== */
+    function setMeta(nameOrProp, value, isProp=false){
+      const selector = isProp ? `meta[property="${nameOrProp}"]` : `meta[name="${nameOrProp}"]`;
+      const el = document.querySelector(selector);
+      if(el) el.setAttribute("content", value);
+    }
+
+    function setCanonical(url){
+      const link = document.querySelector('link[rel="canonical"]');
+      if(link) link.setAttribute("href", url);
+    }
+
+    function normalizeUrl(url){
+      if(!url) return "";
+      return url.endsWith("/") ? url.slice(0,-1) : url;
+    }
+
+    function initSEO(){
+      const site = normalizeUrl(PROFILE.siteUrl);
+      const ogImage = site + (PROFILE.seo.ogImagePath.startsWith("/") ? PROFILE.seo.ogImagePath : ("/" + PROFILE.seo.ogImagePath));
+
+      document.title = PROFILE.seo.title;
+      setMeta("description", PROFILE.seo.description);
+
+      setCanonical(site + "/");
+
+      // OG
+      setMeta("og:title", PROFILE.seo.title, true);
+      setMeta("og:description", PROFILE.seo.description, true);
+      setMeta("og:url", site + "/", true);
+      setMeta("og:image", ogImage, true);
+
+      // Twitter
+      setMeta("twitter:title", PROFILE.seo.title);
+      setMeta("twitter:description", PROFILE.seo.description);
+      setMeta("twitter:image", ogImage);
+
+      // JSON-LD Person basics update
+      const ld = document.querySelector('script[type="application/ld+json"]');
+      if(ld){
+        try{
+          const obj = JSON.parse(ld.textContent);
+          obj.name = PROFILE.name;
+          obj.url = site + "/";
+          obj.sameAs = Array.from(new Set([
+            PROFILE.githubProfileUrl,
+            PROFILE.researchRepo.url,
+            PROFILE.linkedinUrl,
+            PROFILE.googleScholarUrl
+          ].filter(Boolean)));
+          ld.textContent = JSON.stringify(obj);
+        }catch(e){}
+      }
+    }
+
+    /* =========================
+       PAGE RENDER (from PROFILE)
+    ========================== */
+    function el(tag, className, html){
+      const node = document.createElement(tag);
+      if(className) node.className = className;
+      if(html !== undefined) node.innerHTML = html;
+      return node;
+    }
+
+    function safeText(s){ return (s || "").toString(); }
+
+    function render(){
+      // Brand/title
+      document.getElementById("brandText").textContent =
+        (PROFILE.name && PROFILE.name !== "YOUR_NAME") ? PROFILE.name : "Portfolio";
+
+      document.getElementById("heroTitle").textContent = PROFILE.heroTitle || "Cyber Security Portfolio";
+      document.getElementById("heroTagline").textContent = PROFILE.tagline || "";
+      document.getElementById("heroIntro").textContent = PROFILE.shortIntro || "";
+
+      // Buttons
+      document.getElementById("researchRepoBtn").href = PROFILE.researchRepo.url;
+      document.getElementById("githubProfileBtn").href = PROFILE.githubProfileUrl;
+
+      // LinkedIn buttons
+      const lnNav = document.getElementById("linkedinNav");
+      const lnHero = document.getElementById("linkedinHeroBtn");
+      if(PROFILE.linkedinUrl && PROFILE.linkedinUrl.includes("linkedin.com")){
+        lnNav.href = PROFILE.linkedinUrl;
+        lnHero.href = PROFILE.linkedinUrl;
+      } else {
+        lnNav.style.display = "none";
+        lnHero.style.display = "none";
+      }
+
+      // Scholar buttons (demo)
+      const scNav = document.getElementById("scholarNav");
+      const scHero = document.getElementById("scholarHeroBtn");
+      if(PROFILE.googleScholarUrl && PROFILE.googleScholarUrl.includes("scholar.google.com")){
+        scNav.href = PROFILE.googleScholarUrl;
+        scHero.href = PROFILE.googleScholarUrl;
+      } else {
+        scNav.style.display = "none";
+        scHero.style.display = "none";
+      }
+      
+      
+      // Hero tags
+      const heroTags = document.getElementById("heroTags");
+      heroTags.innerHTML = "";
+      ["Adversary Simulation","IT–OT Security","Threat Modeling","Measurement"].forEach(t=>{
+        heroTags.appendChild(el("span","tag",`<i class="bi bi-dot me-1"></i>${t}`));
+      });
+
+      // Quick overview
+      const qo = document.getElementById("quickOverview");
+      qo.innerHTML = "";
+      qo.appendChild(el("li","",`<strong>M.Tech Dissertation:</strong> ${safeText(PROFILE.education[0]?.highlightValue)}`));
+      qo.appendChild(el("li","",`<strong>B.Tech Project:</strong> <a class="link-underline link-underline-opacity-0" href="${PROFILE.btechProjectRepo.url}" target="_blank" rel="noopener">${PROFILE.btechProjectRepo.title}</a>`));
+      qo.appendChild(el("li","",`<strong>Honours:</strong> ${safeText(PROFILE.honors[0]?.title)} (${safeText(PROFILE.honors[0]?.subtitle)})`));
+      const army = PROFILE.honors.find(h=> (h.title || "").toLowerCase().includes("indian army"));
+      qo.appendChild(el("li","",`<strong>Hackathon:</strong> ${safeText(army?.title)} — ${safeText(army?.subtitle)}`));
+
+      // About
+      document.getElementById("aboutText").textContent =
+        "I work at the intersection of applied offensive security and structured research methodology. My focus is on developing systematic frameworks to model adversary behavior, simulate realistic multi-stage attack pathways, and evaluate security controls in measurable and repeatable ways. Through controlled adversary simulation, I aim to better understand how complex and security-critical systems particularly hybrid IT–OT environments behave when intentionally stressed under adversarial conditions, and how they can be strengthened against sophisticated threats. My approach emphasizes abstraction, methodological rigor, and architectural thinking. All publicly shared material is intentionally sanitized and presented strictly for research, academic review, and conceptual exploration.";
+
+      document.getElementById("aboutAcademic").textContent = "BITS Pilani (M.Tech) • Himalayan University (B.Tech)";
+      document.getElementById("aboutRecognition").textContent = `${safeText(PROFILE.honors[0]?.title)} • ${safeText(PROFILE.honors[1]?.title)}`;
+
+      // LinkedIn note
+      const lnNote = document.getElementById("linkedinNote");
+      if(PROFILE.linkedinIsPrivate){
+        lnNote.textContent = "LinkedIn: Private (shared on request/connection)";
+      } else {
+        lnNote.innerHTML = `LinkedIn: <a class="link-underline link-underline-opacity-0" href="${PROFILE.linkedinUrl}" target="_blank" rel="noopener">View profile</a>`;
+      }
+
+      // Scholar note (demo)
+      const scNote = document.getElementById("scholarNote");
+      scNote.innerHTML = `Google Scholar: <a class="link-underline link-underline-opacity-0" href="${PROFILE.googleScholarUrl}" target="_blank" rel="noopener"></a>`;
+
+      // Research section text/cards
+      document.getElementById("researchText").innerHTML =
+        `My M.Tech dissertation centers on <strong>${safeText(PROFILE.education[0]?.highlightValue)}</strong> and builds toward research directions in adversary simulation, threat modeling for segmented architectures, and repeatable measurement of simulation/emulation coverage.`;
+
+      const rc = document.getElementById("researchCards");
+      rc.innerHTML = "";
+      const researchItems = [
+        { title: "Adversary Simulation", icon: "bi-diagram-3", text: "Scenario-driven modeling of adversary behavior and multi-stage pathways in complex networks." },
+        { title: "Hybrid IT–OT Security", icon: "bi-hdd-network", text: "Architecture-first analysis of segmentation, access pathways, and risk in IT–OT-like systems." },
+        { title: "Measurement & Methodology", icon: "bi-clipboard-data", text: "Repeatability, coverage, and evaluation metrics for simulation/emulation research artifacts." }
+      ];
+      researchItems.forEach(item=>{
+        const col = el("div","col-lg-4");
+        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
+        const body = el("div","card-body");
+        body.appendChild(el("h3","h5 fw-bold",`<i class="bi ${item.icon} me-2"></i>${item.title}`));
+        body.appendChild(el("p","muted mb-0",item.text));
+        card.appendChild(body);
+        col.appendChild(card);
+        rc.appendChild(col);
+      });
+
+      // Research repo callout
+      document.getElementById("researchRepoName").textContent = PROFILE.researchRepo.url.split("/").pop();
+      document.getElementById("researchRepoLink").href = PROFILE.researchRepo.url;
+
+      // Education grid
+      const eg = document.getElementById("educationGrid");
+      eg.innerHTML = "";
+      PROFILE.education.forEach(ed=>{
+        const col = el("div","col-lg-6");
+        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
+        const body = el("div","card-body");
+        const row = el("div","d-flex align-items-start gap-3");
+        const img = el("img","logo");
+        img.src = ed.logoUrl;
+        img.alt = `${ed.institute} logo`;
+
+        const content = el("div","");
+        content.appendChild(el("h3","h5 fw-bold mb-1",ed.title));
+        content.appendChild(el("div","muted",ed.institute));
+
+        if(ed.highlightLabel && ed.highlightValue){
+          const block = el("div","mt-3");
+          block.appendChild(el("div","fw-semibold",ed.highlightLabel));
+          if(ed.highlightLink){
+            block.appendChild(el("div","muted",
+              `<a class="link-underline link-underline-opacity-0" href="${ed.highlightLink}" target="_blank" rel="noopener">${ed.highlightValue}</a>`
+            ));
+          } else {
+            block.appendChild(el("div","muted",ed.highlightValue));
+          }
+          content.appendChild(block);
+        }
+
+        row.appendChild(img);
+        row.appendChild(content);
+        body.appendChild(row);
+        card.appendChild(body);
+        col.appendChild(card);
+        eg.appendChild(col);
+      });
+
+      // Projects grid
+      const pg = document.getElementById("projectsGrid");
+      pg.innerHTML = "";
+
+      function projectCard(p, primary=false){
+        const col = el("div","col-lg-6");
+        const card = el("div","card bg-transparent border-0 glass rounded-4 h-100 card-hover");
+        const body = el("div","card-body");
+        body.appendChild(el("h3","h5 fw-bold mb-2",p.title));
+        body.appendChild(el("p","muted mb-3",p.description));
+
+        const tags = el("div","d-flex flex-wrap gap-2 mb-3");
+        (p.tags || []).forEach(t=>{
+          tags.appendChild(el("span","badge text-bg-secondary",t));
+        });
+        body.appendChild(tags);
+
+        const btn = el("a", primary ? "btn btn-primary" : "btn btn-outline-secondary");
+        btn.href = p.url;
+        btn.target = "_blank";
+        btn.rel = "noopener";
+        btn.innerHTML = `<i class="bi bi-box-arrow-up-right me-2"></i>Open Repo`;
+        body.appendChild(btn);
+
+        card.appendChild(body);
+        col.appendChild(card);
+        return col;
+      }
+
+      pg.appendChild(projectCard(PROFILE.researchRepo, true));
+      pg.appendChild(projectCard(PROFILE.btechProjectRepo, false));
+
+      // Honors grid
+      const hg = document.getElementById("honorsGrid");
+      hg.innerHTML = "";
+      const icons = ["bi-trophy","bi-flag","bi-patch-check","bi-award"];
+      PROFILE.honors.forEach((h, idx)=>{
+        const col = el("div","col-lg-4");
+        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
+        const body = el("div","card-body");
+        body.appendChild(el("div","d-flex align-items-center gap-3",
+          `<div class="rounded-4 d-flex align-items-center justify-content-center" style="width:52px;height:52px;background: rgba(255,255,255,.08);">
+             <i class="bi ${icons[idx % icons.length]} fs-3"></i>
+           </div>
+           <div>
+             <div class="fw-bold">${h.title}</div>
+             <div class="muted">${h.subtitle || ""}</div>
+           </div>`
+        ));
+        card.appendChild(body);
+        col.appendChild(card);
+        hg.appendChild(col);
+      });
+
+      // Certifications grid (with logos)
+      const cg = document.getElementById("certsGrid");
+      cg.innerHTML = "";
+      if(PROFILE.certifications && PROFILE.certifications.length > 0){
+        PROFILE.certifications.forEach(c=>{
+          const col = el("div","col-lg-4 col-md-6");
+          const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
+          const body = el("div","card-body");
+          const wrap = el("div","cert-item");
+          const img = el("img","cert-logo");
+          img.src = c.logoUrl;
+          img.alt = `${c.name} logo`;
+
+          const info = el("div","");
+          info.appendChild(el("div","fw-bold",c.name));
+          info.appendChild(el("div","muted",c.issuer || ""));
+          wrap.appendChild(img);
+          wrap.appendChild(info);
+          body.appendChild(wrap);
+          card.appendChild(body);
+          col.appendChild(card);
+          cg.appendChild(col);
+        });
+      } else {
+        cg.appendChild(el("div","col-12",`<div class="alert glass mb-0"><strong>Optional:</strong> Add certifications in <span class="kbdish">PROFILE.certifications</span>.</div>`));
+      }
+
+      // Contact: GitHub
+      const contactGithub = document.getElementById("contactGithub");
+      contactGithub.href = PROFILE.githubProfileUrl;
+      contactGithub.textContent = PROFILE.githubProfileUrl.replace("https://","");
+
+      // Contact: Email
+      const emailCard = document.getElementById("emailCard");
+      emailCard.innerHTML = "";
+      if(PROFILE.email && PROFILE.email.trim().length > 0 && PROFILE.email !== "YOUR_EMAIL"){
+        emailCard.appendChild(el("div","p-3 rounded-4 glass",
+          `<div class="small-muted">Email</div>
+           <div class="fw-semibold"><a class="link-underline link-underline-opacity-0" href="mailto:${PROFILE.email}">${PROFILE.email}</a></div>`
+        ));
+      } else {
+        emailCard.appendChild(el("div","p-3 rounded-4 glass",
+          `<div class="small-muted">Email</div>
+           <div class="fw-semibold">Available on request</div>`
+        ));
+      }
+
+      // Contact: LinkedIn
+      const linkedinCard = document.getElementById("linkedinCard");
+      linkedinCard.innerHTML = "";
+      if(PROFILE.linkedinIsPrivate){
+        linkedinCard.appendChild(el("div","p-3 rounded-4 glass",
+          `<div class="small-muted">LinkedIn</div>
+           <div class="fw-semibold"><a href="https://www.linkedin.com/in/supriyo-guha/">Supriyo Guha</a></div>`
+        ));
+      } else {
+        linkedinCard.appendChild(el("div","p-3 rounded-4 glass",
+          `<div class="small-muted">LinkedIn</div>
+           <div class="fw-semibold">
+             <a class="link-underline link-underline-opacity-0" href="${PROFILE.linkedinUrl}" target="_blank" rel="noopener">
+               View profile
+             </a>
+           </div>`
+        ));
+      }
+
+      // Contact: Scholar (demo)
+      const scholarCard = document.getElementById("scholarCard");
+      scholarCard.innerHTML = "";
+      scholarCard.appendChild(el("div","p-3 rounded-4 glass",
+        `<div class="small-muted">Google Scholar</div>
+         <div class="fw-semibold">
+           <!--a class="link-underline link-underline-opacity-0" href="${PROFILE.googleScholarUrl}" target="_blank" rel="noopener">Demo link (update later)</a-->
+         </div>`
+      ));
+
+      // Footer year
+      document.getElementById("y").textContent = new Date().getFullYear();
+    }
+
+    /* =========================
+       INIT
+    ========================== */
+    initSEO();
+    render();
+  </script>
+</body>
+</html>
