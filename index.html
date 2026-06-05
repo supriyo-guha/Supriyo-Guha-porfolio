@@ -1,848 +1,1130 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Supriyo Guha</title>
-  <meta name="description" content="Information security portfolio." />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <link rel="canonical" href="https://supriyo-guha.github.io/Supriyo-Guha-porfolio/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supriyo Guha — Information Security Researcher</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5 L90 20 L90 55 C90 75 72 90 50 97 C28 90 10 75 10 55 L10 20 Z' fill='%23cc2200'/><path d='M50 5 L90 20 L90 55 C90 75 72 90 50 97 C28 90 10 75 10 55 L10 20 Z' fill='none' stroke='%23ff4422' stroke-width='2'/><text x='50' y='62' font-family='monospace' font-size='38' font-weight='bold' text-anchor='middle' fill='white'>S</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Devanagari:wght@300;400&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"] {
+  --bg:           #0a0c10;
+  --bg2:          #0f1117;
+  --bg3:          #141720;
+  --border:       #1e2540;
+  --border2:      #2e3d5a;
+  --accent:       #2979ff;
+  --accent2:      #1a54cc;
+  --accent3:      #ff3d71;
+  --gold:         #ffca28;
+  --text:         #e2e8f8;
+  --text-dim:     #8898c8;
+  --text-faint:   #4a5c80;
+  --green:        #00e676;
+  --purple:       #7c4dff;
+  --cyan:         #00e5ff;
+  --red:          #cc2200;
+  --nav-bg:       rgba(10,12,16,0.88);
+  --grid-color:   #1a2035;
+  --scanline:     rgba(41,121,255,0.018);
+  --glow-accent:  0 0 18px rgba(41,121,255,0.35), 0 0 40px rgba(41,121,255,0.12);
+  --glow-green:   0 0 14px rgba(0,230,118,0.4);
+  --glow-cyan:    0 0 14px rgba(0,229,255,0.35);
+  --card-bg:      rgba(15,17,23,0.95);
+  --card-border:  rgba(41,121,255,0.18);
+  --glass-bg:     rgba(15,17,23,0.7);
+  --prism-line:   linear-gradient(90deg, #2979ff, #7c4dff, #00e5ff, #00e676, #2979ff);
+  --ext-color:    #6a9fd8;
+}
+[data-theme="light"] {
+  --bg:           #e8edf5;
+  --bg2:          rgba(255,255,255,0.72);
+  --bg3:          rgba(240,244,252,0.8);
+  --border:       rgba(180,200,230,0.6);
+  --border2:      rgba(120,160,210,0.7);
+  --accent:       #0067c0;
+  --accent2:      #004e99;
+  --accent3:      #c4000f;
+  --gold:         #8a6300;
+  --text:         #1a2030;
+  --text-dim:     #3a4a68;
+  --text-faint:   #8090b8;
+  --green:        #107c10;
+  --purple:       #6b3fa0;
+  --cyan:         #0078d4;
+  --red:          #c4000f;
+  --nav-bg:       rgba(235,240,250,0.75);
+  --grid-color:   rgba(160,185,220,0.35);
+  --scanline:     rgba(0,103,192,0.008);
+  --glow-accent:  0 4px 20px rgba(0,103,192,0.18), 0 1px 4px rgba(0,103,192,0.1);
+  --glow-green:   0 2px 12px rgba(16,124,16,0.2);
+  --glow-cyan:    0 2px 12px rgba(0,120,212,0.2);
+  --card-bg:      rgba(255,255,255,0.65);
+  --card-border:  rgba(180,210,245,0.8);
+  --glass-bg:     rgba(255,255,255,0.45);
+  --prism-line:   linear-gradient(90deg, #0067c0, #6b3fa0, #0090d4, #107c10, #0067c0);
+}
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Information Security Portfolio" />
-  <meta property="og:description" content="Research-oriented portfolio." />
-  <meta property="og:url" content="https://example.com/" />
-  <meta property="og:image" content="https://example.com/assets/og-image.png" />
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cyber Security Portfolio" />
-  <meta name="twitter:description" content="Research-oriented portfolio." />
-  <meta name="twitter:image" content="https://example.com/assets/og-image.png" />
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.4s;
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 20%, rgba(41,121,255,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 80%, rgba(124,77,255,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #0a0c10 0%, #070810 100%);
+}
+[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse 90% 60% at 20% 10%, rgba(0,120,212,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 90%, rgba(107,63,160,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #dce8f8 0%, #edf2fa 40%, #f2f5fc 70%, #e8edf5 100%);
+}
+[data-theme="dark"] body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.55;
+}
+[data-theme="light"] body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255,255,255,0.45) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 1;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--scanline) 2px, var(--scanline) 4px);
+  pointer-events: none; z-index: 9998;
+}
 
-  <!-- Bootstrap 5 + Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+body > nav::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--prism-line);
+  background-size: 300% 100%;
+  animation: prismSlide 6s linear infinite;
+  z-index: 2;
+}
+@keyframes prismSlide { 0%{ background-position: 0% 0%; } 100%{ background-position: 300% 0%; } }
 
-  <!-- JSON-LD Structured Data (will be updated from PROFILE by JS) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Supriyo Guha",
-    "jobTitle":"Information Security Researcher",
-    "url":"https://supriyo-guha.github.io/Supriyo-Guha-porfolio/",
-    "sameAs":[
-      "https://github.com/supriyo-guha",
-      "https://github.com/supriyo-guha/Offensive-Adversary-Simulation-Critical-Infrastructures"
-    ],
-    "knowsAbout":[
-      "Offensive Simulation",
-      "Adversary Simulation",
-      "IT-OT Security",
-      "Threat Modeling",
-      "Security Research Methodology"
-    ],
-    "alumniOf":[
-      {"@type":"CollegeOrUniversity","name":"Birla Institute of Technology & Science (BITS), Pilani"},
-      {"@type":"CollegeOrUniversity","name":"Himalayan University"}
-    ]
-  }
-  </script>
+/* ── GLASS CARDS ── */
+[data-theme="light"] .stat-panel,
+[data-theme="light"] .terminal-block,
+[data-theme="light"] .edu-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .award-row,
+[data-theme="light"] .cert-card,
+[data-theme="light"] .coming-soon-block,
+[data-theme="light"] .contact-link {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-color: var(--card-border) !important;
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.9) inset,
+    0 -1px 0 0 rgba(180,210,240,0.4) inset,
+    0 8px 32px rgba(0,100,200,0.07),
+    0 2px 8px rgba(0,80,180,0.05);
+}
+[data-theme="dark"] .stat-panel,
+[data-theme="dark"] .terminal-block,
+[data-theme="dark"] .edu-card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .award-row,
+[data-theme="dark"] .cert-card,
+[data-theme="dark"] .coming-soon-block,
+[data-theme="dark"] .contact-link {
+  background: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  box-shadow: 0 0 0 1px rgba(41,121,255,0.06), 0 4px 24px rgba(0,0,0,0.5);
+}
 
-  <style>
-    body { scroll-behavior: smooth; transition: background-color .25s ease, color .25s ease; }
-    .hero{
-      background:
-        radial-gradient(1100px 520px at 12% 10%, rgba(13,110,253,.23), transparent 60%),
-        radial-gradient(900px 420px at 88% 20%, rgba(32,201,151,.14), transparent 55%);
-    }
-    .section{ scroll-margin-top: 90px; }
-    .glass{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-    }
-    .logo{
-      width: 54px; height: 54px; object-fit: contain;
-      background: rgba(255,255,255,.90);
-      border-radius: 14px;
-      padding: 6px;
-      border: 1px solid rgba(0,0,0,.08);
-    }
-    .tag{
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      padding: .35rem .65rem;
-      border-radius: 999px;
-      font-size: .92rem;
-    }
-    .card-hover:hover{ transform: translateY(-2px); transition: .2s; }
-    .muted{ opacity:.78; }
-    .small-muted{ opacity:.68; font-size:.92rem; }
-    .kbdish{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+/* ── CERT CARD HOVER POP-OUT ── */
+.cert-card {
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.28s ease,
+              border-color 0.2s ease;
+  will-change: transform;
+}
+[data-theme="dark"] .cert-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(41,121,255,0.55) !important;
+  box-shadow:
+    0 0 0 1px rgba(41,121,255,0.2),
+    0 12px 40px rgba(0,0,0,0.7),
+    0 0 24px rgba(41,121,255,0.22) !important;
+  z-index: 2;
+  position: relative;
+}
+[data-theme="light"] .cert-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(0,103,192,0.5) !important;
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,1) inset,
+    0 -1px 0 0 rgba(0,103,192,0.3) inset,
+    0 16px 48px rgba(0,103,192,0.18),
+    0 4px 16px rgba(0,80,180,0.12) !important;
+  z-index: 2;
+  position: relative;
+}
+/* Prismatic top line on cert hover */
+.cert-card { position: relative; overflow: hidden; }
+.cert-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--prism-line);
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cert-card:hover::before { opacity: 1; }
 
-    html[data-bs-theme="light"] .glass{
-      background: rgba(0,0,0,.03);
-      border: 1px solid rgba(0,0,0,.10);
-    }
-    html[data-bs-theme="light"] .tag{
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(0,0,0,.03);
-    }
+/* ── CERT LOGO GLOW on hover ── */
+[data-theme="dark"] .cert-card:hover .cert-logo {
+  box-shadow: 0 0 16px rgba(41,121,255,0.4);
+  transition: box-shadow 0.3s;
+}
+[data-theme="light"] .cert-card:hover .cert-logo {
+  box-shadow: 0 4px 12px rgba(0,103,192,0.25);
+  transition: box-shadow 0.3s;
+}
 
-    /* Navbar glass */
-    .navbar-glass{
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,.55);
-    }
-    html[data-bs-theme="light"] .navbar-glass{
-      background: rgba(255,255,255,.80);
-    }
+/* ── AWARD ROW HOVER POP-OUT ── */
+.award-row {
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.28s ease,
+              border-color 0.2s ease;
+  will-change: transform;
+}
+[data-theme="dark"] .award-row:hover {
+  transform: translateX(6px) scale(1.012);
+  border-left-color: rgba(41,121,255,0.8) !important;
+  box-shadow:
+    -4px 0 18px rgba(41,121,255,0.25),
+    0 0 0 1px rgba(41,121,255,0.12),
+    0 8px 32px rgba(0,0,0,0.6) !important;
+}
+[data-theme="light"] .award-row:hover {
+  transform: translateX(6px) scale(1.012);
+  border-left-color: #0067c0 !important;
+  box-shadow:
+    -4px 0 14px rgba(0,103,192,0.2),
+    0 8px 32px rgba(0,100,200,0.1),
+    0 2px 8px rgba(0,80,180,0.07) !important;
+}
 
-    /* Cert logo */
-    .cert-logo{
-      width: 46px; height: 46px; object-fit: contain;
-      background: rgba(255,255,255,.92);
-      border-radius: 12px;
-      padding: 6px;
-      border: 1px solid rgba(0,0,0,.08);
-      flex: 0 0 auto;
-    }
-    .cert-item{
-      display:flex; gap:12px; align-items:center;
-    }
-    .justified-text {
-        text-align: justify;
-        text-justify: inter-word;
-        line-height: 1.8;
-        font-size: 1.05rem;
-    }
-  </style>
+/* Award logo scale on row hover */
+.award-row .award-logo,
+.award-row .award-logo-placeholder {
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+.award-row:hover .award-logo,
+.award-row:hover .award-logo-placeholder {
+  transform: scale(1.12);
+}
 
-  <!-- =========================
-       ONE PLACE TO UPDATE DETAILS
-  ========================== -->
-  <script>
-    const PROFILE = {
-      // Identity
-      name: "सुप्रिय गुहा", // e.g., "Supriyo Guha" or initials
-      heroTitle: "Supriyo Guha",
-      tagline: "Offensive Security Research • Information Security Portfolio",
-      shortIntro:
-        "Research-oriented Information Security portfolio focused on offensive security, adversary simulation, as a research instrument, and hybrid IT–OT security. Public content is sanitized and non-operational.",
+/* Existing hover overrides — remove conflicting old rules */
+[data-theme="dark"] .edu-card:hover,
+[data-theme="dark"] .project-card:hover,
+[data-theme="dark"] .contact-link:hover {
+  border-color: rgba(41,121,255,0.4) !important;
+  box-shadow: var(--glow-accent), 0 4px 24px rgba(0,0,0,0.5);
+}
+[data-theme="light"] .stat-panel:hover,
+[data-theme="light"] .edu-card:hover,
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .contact-link:hover {
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,1) inset,
+    0 -1px 0 0 rgba(0,103,192,0.3) inset,
+    0 12px 40px rgba(0,103,192,0.12),
+    0 4px 12px rgba(0,80,180,0.08);
+  border-color: rgba(0,103,192,0.45) !important;
+}
 
-      // Links
-      githubUsername: "supriyo-guha",
-      githubProfileUrl: "https://github.com/supriyo-guha",
-      linkedinUrl: "https://www.linkedin.com/in/supriyo-guha",
-      linkedinIsPrivate: true, // true = show "Private (shared on request)" in Contact; still keeps navbar/hero button
-      googleScholarUrl: "https://scholar.google.com/citations?user=DEMO_ID", // demo placeholder, replace later
-      siteUrl: "https://supriyo-guha.github.io/portfolio", // your GitHub Pages URL
-      email: "YOUR_EMAIL", // set "" to hide
+/* ── SKILL BARS ── */
+[data-theme="dark"] .skill-bar-fill { box-shadow: 0 0 8px rgba(41,121,255,0.6); }
+[data-theme="dark"] .skill-bar-fill.green { box-shadow: 0 0 8px rgba(0,230,118,0.6); }
+[data-theme="light"] .skill-bar-fill { background: linear-gradient(90deg, #0067c0, #0090d4); box-shadow: 0 0 6px rgba(0,103,192,0.3); }
+[data-theme="light"] .skill-bar-fill.green { background: linear-gradient(90deg, #107c10, #00a550); box-shadow: 0 0 6px rgba(16,124,16,0.25); }
+[data-theme="light"] .skill-bar-bg { background: rgba(0,103,192,0.1); height: 3px; border-radius: 2px; }
+[data-theme="dark"] .skill-bar-bg { height: 3px; }
+[data-theme="light"] .skill-bar-fill, [data-theme="dark"] .skill-bar-fill { height: 3px; border-radius: 2px; }
 
-      // Primary repos
-      researchRepo: {
-        title: "Offensive Adversary Simulation — Critical Infrastructures",
-        url: "https://github.com/supriyo-guha/Offensive-Adversary-Simulation-Critical-Infrastructures",
-        description:
-          "Research repository aligned to the dissertation: adversary simulation, IT–OT architectures, threat modeling, and measurement ideas.",
-        tags: ["Research", "IT–OT", "Simulation", "Threat Modeling", "Measurement"]
-      },
-      btechProjectRepo: {
-        title: "Advanced Keylogger (Academic Project)",
-        url: "https://github.com/supriyo-guha/advance-keylogger-project",
-        description:
-          "B.Tech project repository shared for academic completeness. Ensure public content remains sanitized and policy-compliant.",
-        tags: ["B.Tech Project", "Software Project"]
-      },
+/* ── BUTTONS ── */
+[data-theme="light"] .btn-primary { background: linear-gradient(135deg, #0078d4, #005fa3); box-shadow: 0 2px 12px rgba(0,103,192,0.3), 0 1px 0 rgba(255,255,255,0.4) inset; color: white; }
+[data-theme="light"] .btn-primary:hover { background: linear-gradient(135deg, #0090e8, #0067c0); box-shadow: 0 4px 20px rgba(0,103,192,0.45); }
+[data-theme="light"] .btn-outline { background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); border: 1px solid rgba(0,103,192,0.3); }
+[data-theme="light"] .btn-outline:hover { background: rgba(255,255,255,0.8); border-color: #0067c0; box-shadow: 0 2px 12px rgba(0,103,192,0.2); }
+[data-theme="dark"] .btn-primary { background: linear-gradient(135deg, #2979ff, #1a54cc); box-shadow: var(--glow-accent); }
+[data-theme="dark"] .btn-primary:hover { background: linear-gradient(135deg, #448aff, #2979ff); box-shadow: 0 0 24px rgba(41,121,255,0.55); }
 
-      // Education timeline
-      education: [
-        {
-          level: "M.Tech",
-          title: "M.Tech — Software Systems (Specialization in Security)",
-          institute: "Birla Institute of Technology & Science (BITS), Pilani — WILP Division",
-          highlightLabel: "Dissertation",
-          highlightValue: "Offensive Simulation of Critical Infrastructures",
-          logoUrl: "https://cdn.scholaro.com/logos/772527-239308-3518176581.png"
-        },
-        {
-          level: "B.Tech",
-          title: "B.Tech — Computer Science",
-          institute: "Himalayan University",
-          highlightLabel: "Project",
-          highlightValue: "Advanced Keylogger",
-          highlightLink: "https://github.com/supriyo-guha/advance-keylogger-project",
-          logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Himalayan-University.png/250px-Himalayan-University.png"
-        },
-        {
-          level: "Higher Secondary Education (Class XII)",
-          title: "Higher Secondary Education (Class XII)",
-          institute: "Raiganj Sri Sri Ramkrishna Vidya Bhawan",
-          highlightLabel: "Stream",
-          highlightValue: "Science (Mathematics, Physics, Chemistry, Computer Science)",
-          logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRf7h4RMu7qFQZEK8fLowtiuRT6Iy6opi_cQ&s"
-        },
-        {
-          level: "Secondary Education (Class X)",
-          title: "Secondary Education (Class X)",
-          institute: "Raiganj Coronation High School",
-          logoUrl: "https://upload.wikimedia.org/wikipedia/en/3/39/Raiganj_Coronation.png"
-        }
-      ],
+[data-theme="dark"] .status-dot { background: var(--cyan); box-shadow: var(--glow-cyan); }
 
-      // Honors & Awards
-      honors: [
-        { title: "EC-Council CEH Hall of Fame 2025", subtitle: "Top 100 Global Honoree" },
-        { title: "Indian Army Cyber Security Hackathon", subtitle: "Sainya-Ranakshetram 2021 — Finalist" },
-        { title: "Advent of Cyber 4 (TryHackMe)", subtitle: "2022 — Rank: 160251" }
-      ],
+/* ── NAV ── */
+[data-theme="light"] nav { background: rgba(235,242,255,0.72) !important; backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8); border-bottom: 1px solid rgba(180,210,245,0.6); box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset, 0 4px 20px rgba(0,100,200,0.06); }
+[data-theme="dark"] nav { background: rgba(10,12,16,0.82) !important; backdrop-filter: blur(18px); border-bottom: 1px solid rgba(41,121,255,0.15); box-shadow: 0 1px 0 rgba(41,121,255,0.08) inset; }
 
-      // Certifications (with logos)
-      // NOTE: Replace logoUrl with your preferred official logo images (host locally in /assets/ if you want)
-      certifications: [
-        { name: "CRTA", issuer: "CyberWarFare Labs", logoUrl: "https://cyberwarfare.live/wp-content/uploads/2024/04/CRTA-150x150.png" },
-        { name: "CRT-ID", issuer: "CyberWarFare Labs", logoUrl: "https://cyberwarfare.live/wp-content/uploads/2024/04/CRT-ID-150x150.png" },
-        { name: "CEH Master", issuer: "EC-Council", logoUrl: "https://johnjhacking.com/uploads/cehmaster_5fb43496785f-002.png" },
-        { name: "CEH", issuer: "EC-Council", logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9qJY-b9kr7UABo4jLxXHOFaFMI0-CYZPQ&s" },
-        { name: "CHFI", issuer: "EC-Council", logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy9KTeIkazB15qiP5vebDP_rBAiNiQ27O2NQ&s" },
-        { name: "CCNA", issuer: "Cisco", logoUrl: "https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/twitter_thumb_201604_ccna_600.png" }
-      ],
+[data-theme="light"] .hero-grid-bg { opacity: 0.18; }
+[data-theme="light"] .hero-grid-bg::after { background: radial-gradient(ellipse 70% 70% at 30% 50%, transparent 30%, rgba(232,237,245,0.95) 100%); }
+[data-theme="dark"] .hero-grid-bg { opacity: 0.22; }
 
-      // SEO
-      seo: {
-        title: "Supriyo Guha",
-        description:
-          "Cyber security portfolio featuring academic background (BITS Pilani M.Tech, Himalayan University B.Tech), research on offensive simulation of critical infrastructures, selected projects, honors & awards, and certifications.",
-        ogImagePath: "/assets/og-image.png" // optional; add later
-      }
-    };
-  </script>
+[data-theme="dark"] .terminal-block { background: #050709 !important; border-color: rgba(41,121,255,0.2) !important; box-shadow: 0 0 0 1px rgba(41,121,255,0.08), 0 8px 32px rgba(0,0,0,0.7), inset 0 1px 0 rgba(41,121,255,0.1) !important; }
+[data-theme="dark"] .terminal-block .prompt { color: var(--cyan); text-shadow: var(--glow-cyan); }
+[data-theme="dark"] .terminal-block .out.hi { color: var(--cyan); text-shadow: 0 0 8px rgba(0,229,255,0.4); }
+[data-theme="light"] .terminal-block { background: rgba(245,248,255,0.7) !important; border-color: rgba(0,103,192,0.2) !important; }
+[data-theme="light"] .terminal-block .prompt { color: #107c10; }
+[data-theme="light"] .terminal-block .out.hi { color: #0067c0; }
+
+[data-theme="light"] .section-title { color: #0f1a2e; }
+[data-theme="light"] .hero-name { color: #0f1a2e !important; }
+[data-theme="light"] .edu-degree { color: #0f1a2e !important; }
+[data-theme="light"] .project-name { color: #0f1a2e !important; }
+[data-theme="light"] .award-name { color: #0f1a2e !important; }
+[data-theme="light"] .cert-name { color: #0f1a2e !important; }
+
+[data-theme="dark"] .section-line { background: linear-gradient(90deg, rgba(41,121,255,0.3), transparent); }
+[data-theme="light"] .section-line { background: linear-gradient(90deg, rgba(0,103,192,0.25), transparent); }
+[data-theme="dark"] .nav-logo { text-shadow: 0 0 12px rgba(41,121,255,0.5); }
+[data-theme="dark"] .skill-group-title { text-shadow: 0 0 8px rgba(41,121,255,0.35); }
+
+[data-theme="light"] .lang-pill { background: rgba(255,255,255,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(0,103,192,0.2); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset; }
+[data-theme="light"] .lang-pill:hover { background: rgba(255,255,255,0.85); border-color: #0067c0; color: #0067c0; box-shadow: 0 2px 8px rgba(0,103,192,0.15), 0 1px 0 rgba(255,255,255,0.9) inset; }
+[data-theme="dark"] .lang-pill:hover { border-color: rgba(41,121,255,0.6); color: var(--cyan); box-shadow: 0 0 10px rgba(41,121,255,0.2); }
+[data-theme="light"] .stack-tag { background: rgba(0,103,192,0.06); border-color: rgba(0,103,192,0.2); color: #2a4a7a; }
+[data-theme="light"] .edu-badge { background: rgba(138,99,0,0.08); border-color: rgba(138,99,0,0.25); }
+[data-theme="dark"] .cursor { background: var(--cyan); box-shadow: 0 0 6px rgba(0,229,255,0.6); }
+[data-theme="dark"] .coming-soon-block { border-color: rgba(41,121,255,0.15) !important; }
+[data-theme="light"] .coming-soon-block { border-color: rgba(0,103,192,0.15) !important; }
+[data-theme="light"] footer { background: rgba(230,238,252,0.6); backdrop-filter: blur(12px); }
+[data-theme="dark"] footer { border-top-color: rgba(41,121,255,0.12); }
+
+[data-theme="light"] .edu-card,
+[data-theme="light"] .project-card { position: relative; overflow: hidden; }
+[data-theme="light"] .edu-card::before,
+[data-theme="light"] .project-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--prism-line); background-size: 200% 100%;
+  opacity: 0; transition: opacity 0.3s;
+}
+[data-theme="light"] .edu-card:hover::before,
+[data-theme="light"] .project-card:hover::before { opacity: 1; }
+
+[data-theme="dark"] .award-row { border-left: 2px solid rgba(41,121,255,0.3) !important; }
+[data-theme="light"] .award-row { border-left: 2px solid rgba(0,103,192,0.2) !important; }
+
+/* ── THEME TOGGLE ── */
+.theme-switch-wrap { display: flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; }
+.theme-icon { width: 18px; height: 18px; flex-shrink: 0; transition: opacity 0.35s, transform 0.4s; }
+[data-theme="light"] .sun-icon  { opacity: 1;   transform: scale(1) rotate(0deg); }
+[data-theme="light"] .moon-icon { opacity: 0.3; transform: scale(0.8); }
+[data-theme="dark"]  .moon-icon { opacity: 1;   transform: scale(1); }
+[data-theme="dark"]  .sun-icon  { opacity: 0.3; transform: scale(0.8) rotate(-30deg); }
+.toggle-track { position: relative; width: 46px; height: 24px; border-radius: 999px; cursor: pointer; transition: background 0.35s, box-shadow 0.35s; flex-shrink: 0; border: none; padding: 0; background: transparent; outline: none; }
+[data-theme="dark"] .toggle-track { background: rgba(41,121,255,0.22); box-shadow: 0 0 10px rgba(41,121,255,0.3), inset 0 0 0 1px rgba(41,121,255,0.35); }
+[data-theme="light"] .toggle-track { background: rgba(0,103,192,0.18); box-shadow: inset 0 0 0 1px rgba(0,103,192,0.3), 0 2px 6px rgba(0,103,192,0.1); }
+.toggle-knob { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.35s, box-shadow 0.35s; pointer-events: none; }
+[data-theme="dark"] .toggle-knob { background: #2979ff; box-shadow: 0 0 8px rgba(41,121,255,0.7); transform: translateX(0px); }
+[data-theme="light"] .toggle-knob { background: #0067c0; box-shadow: 0 2px 6px rgba(0,103,192,0.4); transform: translateX(22px); }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-tag { font-size: 10px; letter-spacing: 0.12em; color: var(--text-faint); border: 1px solid var(--text-faint); padding: 3px 9px; text-transform: uppercase; }
+
+/* ── HERO ── */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 100px 80px 80px; position: relative; gap: 60px; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.25; transition: background-image 0.35s; }
+.hero-grid-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, transparent 40%, var(--bg) 100%); }
+.hero-left { position: relative; z-index: 1; }
+.hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.hero-eyebrow-line { width: 36px; height: 1px; background: var(--accent); }
+.hero-eyebrow span { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+.hero-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(38px, 5vw, 62px); line-height: 1.05; letter-spacing: -0.01em; color: var(--text); margin-bottom: 6px; }
+[data-theme="dark"] .hero-name { color: #e8f4ff; }
+.hero-name em { font-style: normal; color: var(--accent); }
+.hero-name-hindi { font-family: 'Noto Sans Devanagari', 'Mangal', 'Arial Unicode MS', sans-serif; font-size: clamp(15px, 2vw, 20px); font-weight: 400; letter-spacing: 0.12em; color: var(--text-faint); margin-bottom: 4px; line-height: 1.4; }
+[data-theme="dark"] .hero-name-hindi { color: rgba(160,184,232,0.45); }
+[data-theme="light"] .hero-name-hindi { color: rgba(58,74,104,0.45); }
+.hero-title { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; color: var(--text-dim); margin-bottom: 32px; }
+.hero-desc { font-size: 13px; line-height: 1.9; color: var(--text-dim); max-width: 480px; margin-bottom: 40px; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--text-dim); border: 1px solid var(--border2); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── STAT PANEL ── */
+.hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; }
+.stat-panel { background: var(--bg2); border: 1px solid var(--border); padding: 22px 26px; transition: background 0.35s, border-color 0.35s; }
+.stat-panel-header { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
+.stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.stat-row:last-child { border-bottom: none; }
+.stat-label { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; }
+.stat-value { font-size: 12px; color: var(--accent); font-weight: 700; }
+.stat-value.gold { color: var(--gold); }
+.stat-value.green { color: var(--green); }
+.terminal-block { background: var(--bg); border: 1px solid var(--border); padding: 18px 22px; font-size: 11px; line-height: 1.8; transition: background 0.35s; }
+[data-theme="dark"] .terminal-block { background: #060a0d; }
+.terminal-block .prompt { color: var(--green); }
+.terminal-block .cmd { color: var(--text); }
+.terminal-block .out { color: var(--text-dim); padding-left: 16px; }
+.terminal-block .out.hi { color: var(--accent); }
+
+/* ── SECTION BASE ── */
+section { padding: 90px 80px; border-top: 1px solid var(--border); transition: border-color 0.35s; }
+.section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 56px; }
+.section-num { font-size: 10px; letter-spacing: 0.2em; color: var(--text-faint); }
+.section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.01em; color: var(--text); }
+[data-theme="dark"] .section-title { color: #e8f4ff; }
+.section-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── RESEARCH ── */
+.coming-soon-block { background: var(--bg2); border: 1px solid var(--border); padding: 48px; text-align: center; }
+.coming-soon-block .cs-icon { font-size: 36px; margin-bottom: 16px; }
+.coming-soon-block .cs-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: var(--text-dim); letter-spacing: 0.08em; }
+.coming-soon-block .cs-sub { font-size: 11px; color: var(--text-faint); margin-top: 8px; }
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 28px; transition: border-color 0.2s, background 0.35s; }
+.edu-card:hover { border-color: var(--border2); }
+.edu-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.edu-logo { width: 40px; height: 40px; object-fit: contain; background: white; border-radius: 4px; padding: 4px; flex-shrink: 0; }
+.edu-logo-placeholder { width: 40px; height: 40px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.edu-institution { font-size: 12px; color: var(--text-dim); font-weight: 700; }
+.edu-year { font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+.edu-degree { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 4px; }
+[data-theme="dark"] .edu-degree { color: #e8f4ff; }
+.edu-detail { font-size: 11px; color: var(--text-faint); line-height: 1.6; margin-top: 10px; }
+.edu-badge { display: inline-block; margin-top: 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); }
+.edu-card.phd-future { opacity: 0.5; border-style: dashed; }
+.phd-comment-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px; }
+
+/* ── PROJECTS ── */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+.project-card { background: var(--bg2); border: 1px solid var(--border); padding: 26px; transition: border-color 0.2s, background 0.35s; }
+.project-card:hover { border-color: var(--border2); }
+.project-num { font-size: 10px; letter-spacing: 0.2em; color: var(--text-faint); margin-bottom: 14px; }
+.project-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 10px; }
+[data-theme="dark"] .project-name { color: #e8f4ff; }
+.project-desc { font-size: 11px; color: var(--text-dim); line-height: 1.75; margin-bottom: 16px; }
+.project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack-tag { font-size: 9px; letter-spacing: 0.1em; padding: 2px 8px; border: 1px solid var(--border); color: var(--text-faint); text-transform: uppercase; }
+.project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 12px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.project-link:hover { border-color: var(--accent); }
+
+/* ── SKILLS ── */
+.skills-wrapper { display: flex; flex-direction: column; gap: 48px; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.skill-group-title { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.skill-row { margin-bottom: 14px; }
+.skill-label-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.skill-label { font-size: 11px; color: var(--text-dim); }
+.skill-pct { font-size: 10px; color: var(--text-faint); }
+.skill-bar-bg { height: 2px; background: var(--border); }
+.skill-bar-fill { height: 2px; background: var(--accent); transition: width 1.4s cubic-bezier(0.16,1,0.3,1); width: 0; }
+.skill-bar-fill.green { background: var(--green); }
+.skill-bar-fill.gold { background: var(--gold); }
+.skill-bar-fill.animate { width: var(--w); }
+.lang-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.lang-pill { font-size: 11px; letter-spacing: 0.08em; padding: 6px 16px; background: var(--bg2); border: 1px solid var(--border2); color: var(--text-dim); text-transform: uppercase; transition: all 0.2s; }
+.lang-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── AWARDS ── */
+.awards-list { display: flex; flex-direction: column; gap: 12px; }
+.award-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px; background: var(--bg2); border: 1px solid var(--border); transition: background 0.35s; }
+.award-logo { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; background: white; border-radius: 4px; padding: 3px; }
+.award-logo-placeholder { width: 36px; height: 36px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.award-content {}
+.award-name { font-size: 13px; color: var(--text); font-family: 'Syne', sans-serif; font-weight: 600; margin-bottom: 2px; }
+[data-theme="dark"] .award-name { color: #e8f4ff; }
+.award-desc { font-size: 11px; color: var(--text-dim); line-height: 1.6; }
+
+/* ── CERTIFICATIONS ── */
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.cert-card { background: var(--bg2); border: 1px solid var(--border); padding: 18px; text-align: center; }
+.cert-logo { width: 40px; height: 40px; object-fit: contain; margin: 0 auto 10px; display: block; background: white; border-radius: 4px; padding: 4px; transition: box-shadow 0.3s; }
+.cert-logo-placeholder { width: 40px; height: 40px; margin: 0 auto 10px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.cert-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+[data-theme="dark"] .cert-name { color: #e8f4ff; }
+.cert-issuer { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ── CONTACT ── */
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-copy { font-size: 13px; color: var(--text-dim); line-height: 1.9; }
+.contact-copy p { margin-bottom: 16px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--bg2); border: 1px solid var(--border); text-decoration: none; color: var(--text-dim); font-size: 12px; transition: all 0.2s; }
+.contact-link:hover { border-color: var(--accent2); color: var(--accent); }
+.contact-link-icon { font-size: 16px; width: 20px; text-align: center; }
+.contact-logo { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; border-radius: 3px; }
+.contact-logo-fallback { width: 20px; height: 20px; flex-shrink: 0; align-items: center; justify-content: center; color: var(--text-dim); }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; }
+footer .foot-left { font-size: 10px; color: var(--text-faint); letter-spacing: 0.1em; }
+footer .foot-right { font-size: 10px; color: var(--text-faint); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+.fade-up { opacity:0; animation: fadeUp 0.65s ease forwards; }
+.fade-up.d1{animation-delay:.1s} .fade-up.d2{animation-delay:.25s} .fade-up.d3{animation-delay:.4s} .fade-up.d4{animation-delay:.55s} .fade-up.d5{animation-delay:.7s}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.cursor { display:inline-block; width:7px; height:13px; background:var(--accent); animation:blink 1.1s step-end infinite; vertical-align:-1px; margin-left:2px; }
+.status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 6px var(--green); animation:pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.35)} }
+
+/* ── LANG TERMINAL ── */
+.lang-terminal { border: 1px solid var(--border); overflow: hidden; max-width: 600px; }
+.lt-bar { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg3); border-bottom: 1px solid var(--border); }
+.lt-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.lt-title { font-size: 10px; letter-spacing: 0.1em; color: var(--text-faint); margin-left: 4px; }
+.lt-body { padding: 14px 18px 18px; background: var(--bg); font-size: 12px; line-height: 1.8; }
+[data-theme="dark"] .lt-body { background: #050709; }
+[data-theme="light"] .lt-body { background: rgba(245,248,255,0.8); }
+.lt-line { display: flex; align-items: center; gap: 4px; margin-bottom: 2px; flex-wrap: wrap; }
+.lt-prompt { color: var(--green); }
+.lt-at { color: var(--text-dim); }
+.lt-path { color: var(--accent); }
+.lt-dollar { color: var(--text-dim); margin: 0 6px; }
+.lt-cmd { color: var(--text); }
+.lt-files { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 3px 16px; padding: 8px 0 8px 16px; }
+.lt-file { display: flex; align-items: center; gap: 6px; }
+.lt-icon { font-size: 12px; }
+.lt-fname { color: var(--text); font-weight: 700; }
+.lt-ext { color: var(--text-faint); }
+[data-theme="dark"] .lt-fname { color: #e2e8f8; font-weight: 700; }
+[data-theme="dark"] .lt-ext  { color: #6a9fd8; font-weight: 400; }
+[data-theme="light"] .lt-fname { color: #0f1a2e; }
+[data-theme="light"] .lt-ext { color: #0067c0; }
+.lt-result { color: var(--text-faint); font-size: 10px; letter-spacing: 0.1em; padding-top: 4px; }
+@keyframes blink-inline { 0%,100%{opacity:1} 50%{opacity:0} }
+.lt-cursor-inline { display: inline-block; width: 7px; height: 12px; background: var(--accent); animation: blink-inline 1.1s step-end infinite; vertical-align: -1px; margin-left: 4px; }
+
+/* ── HERO MINI TERMINAL ── */
+.hero-term-wrap { border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; }
+[data-theme="dark"] .hero-term-wrap { border-color: rgba(41,121,255,0.25); box-shadow: 0 0 0 1px rgba(41,121,255,0.06), 0 8px 32px rgba(0,0,0,0.6); }
+[data-theme="light"] .hero-term-wrap { box-shadow: 0 4px 24px rgba(0,100,200,0.09), 0 1px 4px rgba(0,80,180,0.05); }
+.hero-term-bar { display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: var(--bg3); border-bottom: 1px solid var(--border); }
+.hero-term-dots { display: flex; gap: 6px; flex-shrink: 0; }
+.hero-dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.hero-term-title { font-size: 10px; color: var(--text-faint); letter-spacing: 0.1em; flex-shrink: 0; }
+.hero-term-hint { font-size: 10px; color: var(--text-faint); margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-term-hint code { color: var(--accent); background: rgba(41,121,255,0.1); padding: 0 4px; border-radius: 2px; font-size: 10px; }
+[data-theme="light"] .hero-term-hint code { background: rgba(0,103,192,0.08); }
+.hero-term-output { min-height: 120px; max-height: 200px; overflow-y: auto; padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; line-height: 1.75; }
+[data-theme="dark"] .hero-term-output { background: #050709; }
+[data-theme="light"] .hero-term-output { background: rgba(245,248,255,0.92); }
+.hero-tline { margin-bottom: 1px; word-break: break-all; }
+.hto-ok   { color: var(--green); font-weight: 700; }
+.hto-hi   { color: var(--cyan); }
+[data-theme="light"] .hto-hi { color: #0067c0; }
+.hto-warn { color: var(--gold); }
+.hto-err  { color: var(--accent3); }
+.hto-out  { color: var(--text); }
+.hto-dim  { color: var(--text-faint); }
+.hto-flag { color: var(--gold); font-weight: 700; letter-spacing: 0.05em; }
+.hto-echo { color: var(--text-dim); font-size: 10px; }
+.hero-term-input-row { display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg3); border-top: 1px solid var(--border); }
+.hero-prompt { font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+.htp-u   { color: var(--green); }
+.htp-sym { color: var(--accent); }
+.htp-col { color: var(--text-dim); }
+.htp-tilde { color: var(--cyan); }
+[data-theme="light"] .htp-tilde { color: #0067c0; }
+.htp-ds  { color: var(--text-dim); margin-left: 2px; }
+.hero-term-input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); caret-color: var(--accent); }
+.hero-term-input::placeholder { color: var(--text-faint); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 90px 24px 60px; }
+  section { padding: 60px 24px; }
+  .skills-grid, .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+  footer { padding: 22px 24px; flex-direction: column; gap: 8px; }
+}
+</style>
 </head>
+<body>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" tabindex="0">
-
-  <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg sticky-top border-bottom navbar-glass">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#top">
-        <i class="bi bi-shield-lock me-2"></i><span id="brandText">Portfolio</span>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Supriyo Guha</div>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-tag">PhD Applicant</span>
+    <div class="theme-switch-wrap" onclick="toggleTheme()" role="button" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="4" fill="#ffca28"/>
+        <g stroke="#ffca28" stroke-width="1.8" stroke-linecap="round">
+          <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+          <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+        </g>
+      </svg>
+      <button class="toggle-track" id="themeBtn" aria-label="Toggle theme">
+        <span class="toggle-knob" id="toggleKnob"></span>
       </button>
+      <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="#a0b8e8" stroke="#a0b8e8" stroke-width="0.5"/>
+      </svg>
+    </div>
+  </div>
+</nav>
 
-      <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto gap-1 align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#awards">Honours</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certs">Certifications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
-          <!-- LinkedIn -->
-          <li class="nav-item ms-lg-2">
-            <a id="linkedinNav" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </li>
-
-          <!-- Google Scholar (demo) -->
-          <li class="nav-item ms-lg-2">
-            <a id="scholarNav" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener" aria-label="Google Scholar">
-              <i class="bi bi-mortarboard"></i>
-            </a>
-          </li>
-
-          <!-- Theme toggle -->
-          <li class="nav-item ms-lg-2">
-            <button id="themeToggle" class="btn btn-sm btn-outline-secondary" type="button" aria-label="Toggle theme">
-              <i class="bi bi-moon-stars" id="themeIcon"></i>
-            </button>
-          </li>
-        </ul>
+<!-- HERO -->
+<section id="top" style="border-top:none; padding-top:0;">
+  <div class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-up d1">
+        <div class="hero-eyebrow-line"></div>
+        <span><span class="status-dot"></span>&nbsp; Available for PhD — Research Collaboration</span>
+      </div>
+      <div class="hero-name-hindi fade-up d2">सुप्रियो गुहा</div>
+      <div class="hero-name fade-up d2">Supriyo<br><em>Guha</em></div>
+      <div class="hero-title fade-up d3">Information Security Researcher &amp; Practitioner</div>
+      <p class="hero-desc fade-up d4">
+        ~11 years with the Government of India in offensive security roles spanning VAPT, digital forensics, malware analysis, and adversary simulation. M.Tech (Cyber Security) from BITS Pilani — dissertation graded <em style="color:var(--gold)">Excellent</em>. Research focus: adversarial modelling of hybrid IT/OT compromise pathways in critical infrastructure.
+      </p>
+      <div class="hero-cta fade-up d5">
+        <a href="#research" class="btn btn-primary">Research</a>
+        <a href="#projects" class="btn btn-outline">Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <header id="top" class="hero py-5 border-bottom section">
-    <div class="container py-4">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-7">
-          <h1 class="display-5 fw-bold mb-3" id="heroTitle">Information Security Portfolio</h1>
-          <p class="lead muted mb-3" id="heroTagline"></p>
-
-          <div class="d-flex flex-wrap gap-2 mb-4" id="heroTags"></div>
-
-          <p class="muted mb-4" id="heroIntro"></p>
-
-          <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-primary btn-lg" href="#projects"><i class="bi bi-folder2-open me-2"></i>View Projects</a>
-            <a class="btn btn-outline-secondary btn-lg" id="researchRepoBtn" target="_blank" rel="noopener">
-              <i class="bi bi-github me-2"></i>Research Repo
-            </a>
-            <a class="btn btn-outline-secondary btn-lg" id="githubProfileBtn" target="_blank" rel="noopener">
-              <i class="bi bi-person-badge me-2"></i>GitHub Profile
-            </a>
-            <a class="btn btn-outline-secondary btn-lg" id="linkedinHeroBtn" target="_blank" rel="noopener">
-              <i class="bi bi-linkedin me-2"></i>LinkedIn
-            </a>
-            <a class="btn btn-outline-secondary btn-lg" id="scholarHeroBtn" target="_blank" rel="noopener">
-              <i class="bi bi-mortarboard me-2"></i>Google Scholar
-            </a>
+    <div class="hero-right fade-up d3">
+      <div class="stat-panel">
+        <div class="stat-panel-header">// profile_summary.json</div>
+        <div class="stat-row"><span class="stat-label">Current Position</span><span class="stat-value">Govt. of India — Infosec Analyst</span></div>
+        <div class="stat-row"><span class="stat-label">Service Length</span><span class="stat-value" id="serviceLength">Calculating…</span></div>
+        <div class="stat-row"><span class="stat-label">M.Tech Grade</span><span class="stat-value gold">Excellent</span></div>
+        <div class="stat-row"><span class="stat-label">CEH Master</span><span class="stat-value gold">Hall of Fame 2025</span></div>
+        <div class="stat-row"><span class="stat-label">Location</span><span class="stat-value">New Delhi, India</span></div>
+        <div class="stat-row"><span class="stat-label">TryHackMe</span><span class="stat-value green">Top 10% — 2024</span></div>
+      </div>
+      <!-- HERO INTERACTIVE MINI-TERMINAL -->
+      <div class="hero-term-wrap" id="heroTermWrap">
+        <div class="hero-term-bar">
+          <div class="hero-term-dots">
+            <span class="hero-dot" style="background:#ff5f56"></span>
+            <span class="hero-dot" style="background:#ffbd2e"></span>
+            <span class="hero-dot" style="background:#27c93f"></span>
           </div>
-
-          <!--div class="alert glass mt-4 mb-0" role="alert">
-            <strong>Professional note:</strong>
-            Due to the sensitive nature of professional engagements, operational artifacts and real-world implementation details are not publicly disclosed.
-            This site focuses on research-oriented abstractions and academic exploration.
-          </div-->
+          <span class="hero-term-title">supriyo@sec:~$</span>
+          <span class="hero-term-hint">Try: <code>cat flag.txt</code> or <code>help</code></span>
         </div>
+        <div class="hero-term-output" id="heroOutput">
+          <div class="hero-tline"><span class="hto-dim">Welcome. Type <span class="hto-ok">help</span> to begin.</span></div>
+        </div>
+        <div class="hero-term-input-row">
+          <span class="hero-prompt"><span class="htp-u">supriyo</span><span class="htp-sym">@sec</span><span class="htp-col">:</span><span class="htp-tilde">~</span><span class="htp-ds">$</span></span>
+          <input type="text" id="heroInput" class="hero-term-input" placeholder="enter command…" autocomplete="off" spellcheck="false" onkeydown="heroKey(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="col-lg-5">
-          <div class="p-4 rounded-4 glass">
-            <h2 class="h5 fw-bold mb-3"><i class="bi bi-search me-2"></i>Quick Overview</h2>
-            <ul class="mb-0 muted" id="quickOverview"></ul>
-            <hr class="my-3" />
-            <p class="small-muted mb-0">
-              Built for professors/research labs to quickly assess research direction, discipline, and documented work.
-            </p>
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Research</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="coming-soon-block">
+    <div class="cs-icon">🔬</div>
+    <div class="cs-title">Coming Soon</div>
+    <div class="cs-sub">Research publications and technical papers will be listed here. Currently in active development.</div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <!-- PhD — COMMENTED OUT FOR FUTURE USE
+    <div class="edu-card phd-future">
+      <div class="phd-comment-label">// Future — Pending Admission</div>
+      <div class="edu-logo-row">
+        <img class="edu-logo" src="https://www.iitp.ac.in/images/logo.png" alt="IIT Patna" onerror="this.style.display='none'">
+        <span class="edu-institution">IIT Patna, India</span>
+      </div>
+      <div class="edu-year">2025 — Prospective</div>
+      <div class="edu-degree">Ph.D. — Computer Science &amp; Engineering (Cyber Security)</div>
+      <div class="edu-detail">Proposed Research: "Adversarial Modelling and Measurement of Enterprise and Hybrid IT–OT Infrastructure Compromise Pathways"</div>
+    </div>
+    -->
+    <div class="edu-card">
+      <div class="edu-logo-row">
+        <img class="edu-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/120px-BITS_Pilani-Logo.svg.png" alt="BITS Pilani" onerror="this.outerHTML='<div class=\'edu-logo-placeholder\'>🎓</div>'">
+        <span class="edu-institution">BITS Pilani (WILP), India</span>
+      </div>
+      <div class="edu-year">2022 – 2024</div>
+      <div class="edu-degree">M.Tech — Software Systems (Cyber Security)</div>
+      <div class="edu-detail">Dissertation: <em>"Offensive Simulation on Critical Infrastructure Attacks"</em><br>Multi-site Red Team simulation across segmented IT and OT environments.</div>
+      <span class="edu-badge">Dissertation: Excellent</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-logo-row">
+        <img class="edu-logo" src="https://www.himalayanuniversity.com/images/logo.png" alt="Himalayan University" onerror="this.outerHTML='<div class=\'edu-logo-placeholder\'>🏔</div>'">
+        <span class="edu-institution">Himalayan University, India</span>
+      </div>
+      <div class="edu-year">B.Tech</div>
+      <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+      <div class="edu-detail">Project: <em>Advanced Key Logger</em> — Research-oriented implementation of keystroke interception techniques for security analysis.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Projects &amp; Lab Work</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">// P-01</div>
+      <div class="project-name">Three-Site IT/OT Red Team Lab</div>
+      <div class="project-desc">Full-stack adversary simulation lab: IT network (pfSense, DC/DNS, File Server), Customer Support network, and OT network (HMI + EWS + PLC + SCADA). Macro-enabled Word / ClickFix initial access vectors. Havoc C2 on Kali + AWS EC2 with Cobalt Strike fallback.</div>
+      <div class="project-stack">
+        <span class="stack-tag">pfSense</span><span class="stack-tag">Active Directory</span><span class="stack-tag">Havoc C2</span>
+        <span class="stack-tag">AWS EC2</span><span class="stack-tag">Modbus</span><span class="stack-tag">HMI/SCADA</span><span class="stack-tag">GRFICSv2</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">// P-02</div>
+      <div class="project-name">Advanced Key Logger</div>
+      <div class="project-desc">Research-grade keylogger implementation covering keystroke capture, persistence mechanisms, and evasion analysis. Developed as part of B.Tech final project exploring offensive security fundamentals.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">C</span><span class="stack-tag">Windows API</span>
+        <span class="stack-tag">Persistence</span><span class="stack-tag">Evasion</span>
+      </div>
+      <!-- HYPERLINK PLACEHOLDER: replace href="#" with actual repo URL -->
+      <a href="#" class="project-link">View Repository ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Technical Proficiency</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-wrapper">
+    <div class="skills-grid" id="skills-section">
+      <div>
+        <div class="skill-group-title">// Offensive Security</div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Adversary Simulation / Red Teaming</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:80%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Active Directory Attack Chains</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:80%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">VA &amp; PT</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:80%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">C2 Frameworks</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:80%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Malware Analysis</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Digital Forensics</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:70%"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-group-title">// ICS/OT &amp; Research</div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">ICS / SCADA Security</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:70%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Network Architecture &amp; Network Security</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Python / Scripting &amp; Automation</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Security Research &amp; Paper Writing</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:70%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">MITRE ATT&amp;CK / ICS Threat Mapping</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+        <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Virtualization (Proxmox / VMware / VBox)</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">// Languages</div>
+      <div class="skills-grid" id="lang-section">
+        <div>
+          <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Bengali</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill green" style="--w:85%"></div></div></div>
+          <div class="skill-row"><div class="skill-label-row"><span class="skill-label">English</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill green" style="--w:80%"></div></div></div>
+          <div class="skill-row"><div class="skill-label-row"><span class="skill-label">Hindi</span><span class="skill-pct">60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill green" style="--w:60%"></div></div></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">// Programming &amp; Scripting Languages</div>
+      <div class="lang-terminal">
+        <div class="lt-bar">
+          <span class="lt-dot" style="background:#ff5f56"></span>
+          <span class="lt-dot" style="background:#ffbd2e"></span>
+          <span class="lt-dot" style="background:#27c93f"></span>
+          <span class="lt-title">~/skills/languages</span>
+        </div>
+        <div class="lt-body">
+          <div class="lt-line"><span class="lt-prompt">supriyo@sec</span><span class="lt-at">:</span><span class="lt-path">~/skills</span><span class="lt-dollar">$</span> <span class="lt-cmd">ls -1 languages/</span></div>
+          <div class="lt-files">
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">python</span><span class="lt-ext">.py</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">bash</span><span class="lt-ext">.sh</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">powershell</span><span class="lt-ext">.ps1</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">java</span><span class="lt-ext">.java</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">main</span><span class="lt-ext">.c</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">exploit</span><span class="lt-ext">.cpp</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">webshell</span><span class="lt-ext">.php</span></div>
+            <div class="lt-file"><span class="lt-icon">📄</span><span class="lt-fname">index</span><span class="lt-ext">.html</span></div>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="py-5 section">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-8">
-          <h2 class="h3 fw-bold mb-3">About</h2>
-          <p class="muted mb-0 justified-text" id="aboutText"></p>
-        </div>
-        <div class="col-lg-4">
-          <div class="p-4 rounded-4 glass h-100">
-            <div class="d-flex align-items-center gap-3">
-              <div class="rounded-4 d-flex align-items-center justify-content-center" style="width:56px;height:56px;background: rgba(13,110,253,.18);">
-                <i class="bi bi-mortarboard fs-3"></i>
-              </div>
-              <div>
-                <div class="fw-bold">Academic Track</div>
-                <div class="small-muted" id="aboutAcademic"></div>
-              </div>
-            </div>
-            <hr class="my-3" />
-            <div class="d-flex align-items-center gap-3">
-              <div class="rounded-4 d-flex align-items-center justify-content-center" style="width:56px;height:56px;background: rgba(32,201,151,.18);">
-                <i class="bi bi-award fs-3"></i>
-              </div>
-              <div>
-                <div class="fw-bold">Recognition</div>
-                <div class="small-muted" id="aboutRecognition"></div>
-              </div>
-            </div>
-            <hr class="my-3" />
-            <div class="small-muted d-flex flex-column gap-1">
-              <div><i class="bi bi-linkedin me-2"></i><span id="linkedinNote"></span></div>
-              <div><i class="bi bi-mortarboard me-2"></i><span id="scholarNote"></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Research -->
-  <section id="research" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Research</h2>
-      <p class="muted col-lg-10" id="researchText"></p>
-
-      <div class="row g-3 mt-2" id="researchCards"></div>
-
-      <div class="alert glass mt-4 mb-0">
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
-          <div>
-            <strong>Research Repository:</strong>
-            <span class="kbdish" id="researchRepoName"></span>
-          </div>
-          <a class="btn btn-outline-secondary btn-sm" id="researchRepoLink" target="_blank" rel="noopener">
-            <i class="bi bi-box-arrow-up-right me-2"></i>Open Repo
-          </a>
+          <div class="lt-line lt-result">8 files &nbsp;|&nbsp; languages loaded</div>
+          <div class="lt-line"><span class="lt-prompt">supriyo@sec</span><span class="lt-at">:</span><span class="lt-path">~/skills</span><span class="lt-dollar">$</span> <span class="lt-cursor-inline"></span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Education -->
-  <section id="education" class="py-5 section">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Education</h2>
-      <div class="row g-3" id="educationGrid"></div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Projects & Repositories</h2>
-      <div class="row g-3 mt-2" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <!-- Awards -->
-  <section id="awards" class="py-5 section">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Honours & Awards</h2>
-      <div class="row g-3" id="honorsGrid"></div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certs" class="py-5 border-top border-bottom section" style="background: rgba(0,0,0,.12);">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Certifications</h2>
-      <div class="row g-3" id="certsGrid"></div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-5 section">
-    <div class="container">
-      <h2 class="h3 fw-bold mb-3">Contact</h2>
-
-      <div class="card border-0 glass rounded-4">
-        <div class="card-body p-4">
-          <p class="muted mb-4">
-            If you are a faculty member / researcher interested in adversary simulation in hybrid IT–OT systems, feel free to reach out.
-          </p>
-
-          <div class="row g-3">
-            <div class="col-lg-3" id="emailCard"></div>
-
-            <div class="col-lg-3">
-              <div class="p-3 rounded-4 glass">
-                <div class="small-muted">GitHub</div>
-                <div class="fw-semibold">
-                  <a class="link-underline link-underline-opacity-0" id="contactGithub" target="_blank" rel="noopener"></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3" id="linkedinCard"></div>
-            <div class="col-lg-3" id="scholarCard"></div>
-          </div>
-        </div>
+<!-- HONOURS -->
+<section id="awards">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Honours &amp; Recognition</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-list">
+    <div class="award-row">
+      <img class="award-logo" src="https://cdn-icons-png.flaticon.com/512/1378/1378582.png" alt="M.Tech" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🏆</div>'">
+      <div class="award-content">
+        <div class="award-name">M.Tech Dissertation Graded "Excellent" — BITS Pilani (WILP)</div>
+        <div class="award-desc">Thesis on multi-site offensive simulation of critical infrastructure attacks received the highest evaluation grade.</div>
       </div>
-
     </div>
-  </section>
-
-  <footer class="py-4 border-top">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <div class="small-muted">
-        © <span id="y"></span> • Research-oriented portfolio • Sanitized public content
+    <div class="award-row">
+      <img class="award-logo" src="https://cdn.eccouncil.org/wp-content/uploads/2025/07/26064114/CEH-HOF-Mobile-Banner-1.jpg" alt="CEH Master" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🏆</div>'">
+      <div class="award-content">
+        <div class="award-name">CEH Master Hall of Fame 2025 — EC-Council, USA</div>
+        <div class="award-desc">Inducted into EC-Council's CEH Master Hall of Fame 2025 for achieving CEH Master certification with distinction.</div>
       </div>
-      <a class="small-muted link-underline link-underline-opacity-0" href="#top">Back to top</a>
     </div>
-  </footer>
+    <div class="award-row">
+      <img class="award-logo" src="https://assets.tryhackme.com/img/THMlogo.png" alt="TryHackMe" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🔐</div>'">
+      <div class="award-content">
+        <div class="award-name">TryHackMe — Top 10% in 2024</div>
+        <div class="award-desc">Ranked in the top 10% of all TryHackMe users globally in 2024.</div>
+      </div>
+    </div>
+    <div class="award-row">
+      <img class="award-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/ADGPI_Indian_Army.svg/3840px-ADGPI_Indian_Army.svg.png" alt="Indian Army" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🇮🇳</div>'">
+      <div class="award-content">
+        <div class="award-name">Indian Army Hackathon — Cyber Ranakshyetram 2021 — Finalist</div>
+        <div class="award-desc">Selected as a finalist in the Indian Army's national cyber hackathon Cyber Ranakshyetram 2021.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Professional Certifications &amp; Licenses</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="certs-grid">
+    <!-- ══ CERT 1: CRTA ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://cyberwarfare.live/wp-content/uploads/2024/04/CRTA-150x150.png" alt="CRTA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">⚔️</div>
+      <div class="cert-name">CRTA</div>
+      <div class="cert-issuer">CyberWarFare Labs</div>
+    </div>
+    <!-- ══ CERT 2: CRT-ID ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://cyberwarfare.live/wp-content/uploads/2024/04/CRT-ID-150x150.png" alt="CRT-ID" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">🛡</div>
+      <div class="cert-name">CRT-ID</div>
+      <div class="cert-issuer">CyberWarFare Labs</div>
+    </div>
+    <!-- ══ CERT 3: CEH Master ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://johnjhacking.com/uploads/cehmaster_5fb43496785f-002.png" alt="CEH Master" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">🏆</div>
+      <div class="cert-name">CEH Master</div>
+      <div class="cert-issuer">EC-Council</div>
+    </div>
+    <!-- ══ CERT 4: CHFI ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://firebrand.training/media/eqbbrfcy/chfi-official-ec-council-training-v9.png" alt="CHFI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">🔍</div>
+      <div class="cert-name">CHFI</div>
+      <div class="cert-issuer">EC-Council</div>
+    </div>
+    <!-- ══ CERT 5: CCNA ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/twitter_thumb_201604_ccna_600.png" alt="CCNA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">🌐</div>
+      <div class="cert-name">CCNA</div>
+      <div class="cert-issuer">Cisco</div>
+    </div>
+    <!-- ══ CERT 6: NSD Digital Forensics ══ Replace src with actual logo URL -->
+    <div class="cert-card">
+      <img class="cert-logo" src="https://isacfoundation.org/wp-content/uploads/2017/05/nsd-logo-400px.png" alt="NSD Digital Forensics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="cert-logo-placeholder" style="display:none;">🔬</div>
+      <div class="cert-name">NSD Digital Forensics</div>
+      <div class="cert-issuer">National Security Database — ISAC</div>
+    </div>
+  </div>
+  <p style="margin-top:20px; font-size:11px; color:var(--text-faint);">
+    // Planned pipeline: CRTP → OSCP → CRTO → OSEP → OSED → Malware Dev → Exploit Dev
+  </p>
+</section>
 
-  <script>
-    /* =========================
-       THEME TOGGLE
-    ========================== */
-    const htmlElement = document.documentElement;
-    const toggleBtn = document.getElementById("themeToggle");
-    const icon = document.getElementById("themeIcon");
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-copy">
+      <p>If you are a faculty member or researcher working in adversary simulation, hybrid IT/OT security, or cyber-physical systems, I am actively seeking PhD supervision and research collaboration.</p>
+      <p>My research is grounded in operational security practice (~11 years, Government of India), with a specific interest in developing falsifiable, measurement-driven models of multi-stage infrastructure compromise. Empirical lab validation is central to the proposed methodology.</p>
+      <p style="color:var(--text-faint); font-size:11px;">// All content on this portfolio represents sanitized, unclassified research work.</p>
+    </div>
+    <div class="contact-links">
+      <a href="https://supriyo-guha.github.io/Supriyo-Guha-porfolio/" target="_blank" class="contact-link">
+        <img class="contact-logo" src="PASTE_PORTFOLIO_LOGO_URL_HERE" alt="Portfolio" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" stroke="currentColor" stroke-width="1.8"/></svg></span>
+        <span>Portfolio — supriyo-guha.github.io</span>
+      </a>
+      <!-- Replace href and src with your GitHub profile URL and logo -->
+      <a href="PASTE_GITHUB_PROFILE_URL_HERE" target="_blank" class="contact-link">
+        <img class="contact-logo" src="PASTE_GITHUB_LOGO_URL_HERE" alt="GitHub" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+        <span>GitHub — Research Repositories</span>
+      </a>
+      <!-- Replace href and src with your LinkedIn profile URL and logo -->
+      <a href="PASTE_LINKEDIN_PROFILE_URL_HERE" target="_blank" class="contact-link">
+        <img class="contact-logo" src="PASTE_LINKEDIN_LOGO_URL_HERE" alt="LinkedIn" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+        <span>LinkedIn — Supriyo Guha</span>
+      </a>
+      <!-- Replace href and src with your Google Scholar URL and logo -->
+      <a href="PASTE_GOOGLE_SCHOLAR_URL_HERE" target="_blank" class="contact-link">
+        <img class="contact-logo" src="PASTE_GOOGLE_SCHOLAR_LOGO_URL_HERE" alt="Google Scholar" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg></span>
+        <span>Google Scholar</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    function updateIcon(theme){
-      if(theme === "dark"){
-        icon.className = "bi bi-moon-stars";
-        toggleBtn.classList.remove("btn-outline-dark");
-        toggleBtn.classList.add("btn-outline-secondary");
-      } else {
-        icon.className = "bi bi-sun";
-        toggleBtn.classList.remove("btn-outline-secondary");
-        toggleBtn.classList.add("btn-outline-dark");
+<footer>
+  <div class="foot-left">© Supriyo Guha — Research-oriented portfolio — New Delhi, India</div>
+  <div class="foot-right">Adversarial Simulation · Critical Infrastructure Security</div>
+</footer>
+
+<script>
+  // ── THEME TOGGLE ──
+  function toggleTheme() {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('sg-theme', next);
+  }
+  (function() {
+    const saved = localStorage.getItem('sg-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
+
+  // ── SERVICE LENGTH — counts from December 2014 ──
+  const JOIN_DATE = new Date(2014, 11, 1);
+  function updateServiceLength() {
+    const now = new Date();
+    let years  = now.getFullYear() - JOIN_DATE.getFullYear();
+    let months = now.getMonth()    - JOIN_DATE.getMonth();
+    if (now.getDate() < JOIN_DATE.getDate()) months--;
+    if (months < 0) { years--; months += 12; }
+    const el = document.getElementById('serviceLength');
+    if (!el) return;
+    el.textContent = years > 0 && months > 0
+      ? `${years} yr${years!==1?'s':''} ${months} mo${months!==1?'s':''}`
+      : years > 0 ? `${years} yr${years!==1?'s':''}` : `${months} mo${months!==1?'s':''}`;
+  }
+  updateServiceLength();
+  setInterval(updateServiceLength, 3600000);
+
+  // ── SKILL BAR ANIMATION ──
+  const barObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach(b => b.classList.add('animate'));
+        obs.unobserve(e.target);
       }
-    }
-
-    (function initTheme(){
-      const savedTheme = localStorage.getItem("theme");
-      if(savedTheme){
-        htmlElement.setAttribute("data-bs-theme", savedTheme);
-        updateIcon(savedTheme);
-      } else {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const theme = prefersDark ? "dark" : "light";
-        htmlElement.setAttribute("data-bs-theme", theme);
-        updateIcon(theme);
-      }
-    })();
-
-    toggleBtn.addEventListener("click", () => {
-      const current = htmlElement.getAttribute("data-bs-theme");
-      const next = current === "dark" ? "light" : "dark";
-      htmlElement.setAttribute("data-bs-theme", next);
-      localStorage.setItem("theme", next);
-      updateIcon(next);
     });
+  }, { threshold: 0.2 });
+  ['skills-section','lang-section'].forEach(id => {
+    const el = document.getElementById(id); if (el) barObs.observe(el);
+  });
 
-    /* =========================
-       SEO META UPDATE (from PROFILE)
-    ========================== */
-    function setMeta(nameOrProp, value, isProp=false){
-      const selector = isProp ? `meta[property="${nameOrProp}"]` : `meta[name="${nameOrProp}"]`;
-      const el = document.querySelector(selector);
-      if(el) el.setAttribute("content", value);
+  // ── HERO PARALLAX ──
+  document.addEventListener('mousemove', e => {
+    const grid = document.querySelector('.hero-grid-bg'); if (!grid) return;
+    grid.style.transform = `translate(${(e.clientX/window.innerWidth-.5)*10}px,${(e.clientY/window.innerHeight-.5)*10}px)`;
+  });
+
+  // ── HERO MINI TERMINAL ──
+  const heroOutput = document.getElementById('heroOutput');
+  const heroInput  = document.getElementById('heroInput');
+  const heroHist   = []; let heroHistIdx = -1;
+
+  const FS = {
+    'research_proposal.txt': [
+      { cls:'hto-hi',  t:'Adversarial Modelling and Measurement of' },
+      { cls:'hto-hi',  t:'Enterprise and Hybrid IT–OT Infrastructure' },
+      { cls:'hto-hi',  t:'Compromise Pathways' },
+      { cls:'hto-dim', t:'─────────────────────────────────────────' },
+      { cls:'hto-out', t:'Author  : Supriyo Guha' },
+      { cls:'hto-out', t:'Status  : Under Review' },
+      { cls:'hto-out', t:'Venue   : PhD Application — CSE (Cyber Security)' },
+      { cls:'hto-out', t:'Method  : Empirical lab-validated simulation' },
+    ],
+    'readme.md': [
+      { cls:'hto-ok',  t:'# Supriyo Guha — Research Portfolio' },
+      { cls:'hto-out', t:'Information Security Analyst | Researcher' },
+      { cls:'hto-dim', t:'Files: research_proposal.txt  skills.json  contact.txt' },
+      { cls:'hto-dim', t:'Hidden files may exist. Try: ls -la' },
+    ],
+    'skills.json': [
+      { cls:'hto-dim', t:'{' },
+      { cls:'hto-out', t:'  "adversary_simulation": 80,' },
+      { cls:'hto-out', t:'  "active_directory":     80,' },
+      { cls:'hto-out', t:'  "vapt":                 80,' },
+      { cls:'hto-out', t:'  "c2_frameworks":        80,' },
+      { cls:'hto-out', t:'  "ics_scada":            70,' },
+      { cls:'hto-out', t:'  "digital_forensics":    70' },
+      { cls:'hto-dim', t:'}' },
+    ],
+    'contact.txt': [
+      { cls:'hto-out', t:'Portfolio : supriyo-guha.github.io/Supriyo-Guha-porfolio/' },
+      { cls:'hto-out', t:'GitHub    : PASTE_GITHUB_PROFILE_URL_HERE' },
+      { cls:'hto-out', t:'LinkedIn  : PASTE_LINKEDIN_PROFILE_URL_HERE' },
+      { cls:'hto-out', t:'Scholar   : PASTE_GOOGLE_SCHOLAR_URL_HERE' },
+    ],
+    // ── HIDDEN FILES — add CTF flags / PCAP challenges here ──
+    // '.flag.txt': [
+    //   { cls:'hto-flag', t:'FLAG{y0u_f0und_th3_h1dd3n_fl4g}' },
+    // ],
+    // '.pcap_challenge_1.txt': [
+    //   { cls:'hto-warn', t:'[PCAP Challenge 01 — available post-PhD admission]' },
+    //   { cls:'hto-dim',  t:'Download: wget https://YOUR_URL/challenge_01.pcap' },
+    // ],
+  };
+
+  const VISIBLE_FILES = ['research_proposal.txt','readme.md','skills.json','contact.txt'];
+  const ALL_FILES     = Object.keys(FS);
+
+  const HERO_CMDS = {
+    help: () => [
+      { cls:'hto-ok',  t:'Commands:' },
+      { cls:'hto-out', t:'  ls / ls -la  — list files' },
+      { cls:'hto-out', t:'  cat <file>   — read a file' },
+      { cls:'hto-out', t:'  pwd          — working directory' },
+      { cls:'hto-out', t:'  whoami       — identity' },
+      { cls:'hto-out', t:'  clear        — clear terminal' },
+      { cls:'hto-out', t:'  date         — current date/time' },
+      { cls:'hto-dim', t:'  (Hidden files via ls -la)' },
+    ],
+    ls: () => VISIBLE_FILES.map(f => ({ cls:'hto-out', t:`  ${f}` })),
+    'ls -la': () => {
+      const lines = [{ cls:'hto-dim', t:'total ' + ALL_FILES.length }];
+      VISIBLE_FILES.forEach(f => lines.push({ cls:'hto-out', t:`-rw-r--r-- 1 supriyo sec  ${f}` }));
+      ALL_FILES.filter(f => !VISIBLE_FILES.includes(f)).forEach(f => lines.push({ cls:'hto-flag', t:`-rw------- 1 supriyo sec  ${f}` }));
+      return lines;
+    },
+    'ls -l': () => HERO_CMDS['ls -la'](),
+    'ls -a': () => HERO_CMDS['ls -la'](),
+    pwd:    () => [{ cls:'hto-out', t:'/home/supriyo/portfolio' }],
+    whoami: () => [{ cls:'hto-ok',  t:'supriyo_guha  |  Information Security Analyst  |  Govt. of India' }],
+    date:   () => [{ cls:'hto-out', t: new Date().toString() }],
+    clear:  () => { heroOutput.innerHTML = ''; return null; },
+  };
+
+  function heroPrint(lines) {
+    if (!lines) return;
+    lines.forEach(l => {
+      const d = document.createElement('div'); d.className = 'hero-tline';
+      const s = document.createElement('span'); s.className = l.cls||'hto-out'; s.textContent = l.t;
+      d.appendChild(s); heroOutput.appendChild(d);
+    });
+    heroOutput.scrollTop = heroOutput.scrollHeight;
+  }
+
+  function heroEcho(cmd) {
+    const d = document.createElement('div'); d.className = 'hero-tline';
+    d.innerHTML = `<span class="hto-echo"><span class="htp-u">supriyo</span><span class="htp-sym">@sec</span>:<span class="htp-tilde">~</span><span class="htp-ds">$</span> ${cmd}</span>`;
+    heroOutput.appendChild(d);
+  }
+
+  function heroRun(raw) {
+    const cmd = raw.trim(); if (!cmd) return;
+    heroHist.unshift(cmd); heroHistIdx = -1;
+    heroEcho(cmd);
+    const lower = cmd.toLowerCase();
+    if (lower.startsWith('cat ')) {
+      const fname = cmd.slice(4).trim();
+      FS[fname] ? heroPrint(FS[fname]) : heroPrint([{ cls:'hto-err', t:`cat: ${fname}: No such file or directory` }]);
+    } else if (HERO_CMDS[lower]) {
+      const r = HERO_CMDS[lower](); if (r) heroPrint(r);
+    } else {
+      heroPrint([{ cls:'hto-err', t:`bash: ${cmd}: command not found` }]);
     }
+    const blank = document.createElement('div'); blank.style.height = '4px';
+    heroOutput.appendChild(blank); heroOutput.scrollTop = heroOutput.scrollHeight;
+  }
 
-    function setCanonical(url){
-      const link = document.querySelector('link[rel="canonical"]');
-      if(link) link.setAttribute("href", url);
+  function heroKey(e) {
+    if (e.key === 'Enter') { heroRun(heroInput.value); heroInput.value = ''; }
+    else if (e.key === 'ArrowUp')   { e.preventDefault(); if (heroHistIdx < heroHist.length-1) heroInput.value = heroHist[++heroHistIdx]||''; }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); heroHistIdx>0 ? (heroInput.value=heroHist[--heroHistIdx]) : (heroHistIdx=-1, heroInput.value=''); }
+    else if (e.key === 'Tab') {
+      e.preventDefault();
+      const p = heroInput.value.trim();
+      if (p.startsWith('cat ')) { const m = ALL_FILES.find(f=>f.startsWith(p.slice(4))); if(m) heroInput.value='cat '+m; }
+      else { const m = Object.keys(HERO_CMDS).find(k=>k.startsWith(p)); if(m) heroInput.value=m; }
     }
+  }
 
-    function normalizeUrl(url){
-      if(!url) return "";
-      return url.endsWith("/") ? url.slice(0,-1) : url;
-    }
-
-    function initSEO(){
-      const site = normalizeUrl(PROFILE.siteUrl);
-      const ogImage = site + (PROFILE.seo.ogImagePath.startsWith("/") ? PROFILE.seo.ogImagePath : ("/" + PROFILE.seo.ogImagePath));
-
-      document.title = PROFILE.seo.title;
-      setMeta("description", PROFILE.seo.description);
-
-      setCanonical(site + "/");
-
-      // OG
-      setMeta("og:title", PROFILE.seo.title, true);
-      setMeta("og:description", PROFILE.seo.description, true);
-      setMeta("og:url", site + "/", true);
-      setMeta("og:image", ogImage, true);
-
-      // Twitter
-      setMeta("twitter:title", PROFILE.seo.title);
-      setMeta("twitter:description", PROFILE.seo.description);
-      setMeta("twitter:image", ogImage);
-
-      // JSON-LD Person basics update
-      const ld = document.querySelector('script[type="application/ld+json"]');
-      if(ld){
-        try{
-          const obj = JSON.parse(ld.textContent);
-          obj.name = PROFILE.name;
-          obj.url = site + "/";
-          obj.sameAs = Array.from(new Set([
-            PROFILE.githubProfileUrl,
-            PROFILE.researchRepo.url,
-            PROFILE.linkedinUrl,
-            PROFILE.googleScholarUrl
-          ].filter(Boolean)));
-          ld.textContent = JSON.stringify(obj);
-        }catch(e){}
-      }
-    }
-
-    /* =========================
-       PAGE RENDER (from PROFILE)
-    ========================== */
-    function el(tag, className, html){
-      const node = document.createElement(tag);
-      if(className) node.className = className;
-      if(html !== undefined) node.innerHTML = html;
-      return node;
-    }
-
-    function safeText(s){ return (s || "").toString(); }
-
-    function render(){
-      // Brand/title
-      document.getElementById("brandText").textContent =
-        (PROFILE.name && PROFILE.name !== "YOUR_NAME") ? PROFILE.name : "Portfolio";
-
-      document.getElementById("heroTitle").textContent = PROFILE.heroTitle || "Cyber Security Portfolio";
-      document.getElementById("heroTagline").textContent = PROFILE.tagline || "";
-      document.getElementById("heroIntro").textContent = PROFILE.shortIntro || "";
-
-      // Buttons
-      document.getElementById("researchRepoBtn").href = PROFILE.researchRepo.url;
-      document.getElementById("githubProfileBtn").href = PROFILE.githubProfileUrl;
-
-      // LinkedIn buttons
-      const lnNav = document.getElementById("linkedinNav");
-      const lnHero = document.getElementById("linkedinHeroBtn");
-      if(PROFILE.linkedinUrl && PROFILE.linkedinUrl.includes("linkedin.com")){
-        lnNav.href = PROFILE.linkedinUrl;
-        lnHero.href = PROFILE.linkedinUrl;
-      } else {
-        lnNav.style.display = "none";
-        lnHero.style.display = "none";
-      }
-
-      // Scholar buttons (demo)
-      const scNav = document.getElementById("scholarNav");
-      const scHero = document.getElementById("scholarHeroBtn");
-      if(PROFILE.googleScholarUrl && PROFILE.googleScholarUrl.includes("scholar.google.com")){
-        scNav.href = PROFILE.googleScholarUrl;
-        scHero.href = PROFILE.googleScholarUrl;
-      } else {
-        scNav.style.display = "none";
-        scHero.style.display = "none";
-      }
-      
-      
-      // Hero tags
-      const heroTags = document.getElementById("heroTags");
-      heroTags.innerHTML = "";
-      ["Adversary Simulation","VA&PT","IT–OT Security","Threat Modeling","DFIR","Audit"].forEach(t=>{
-        heroTags.appendChild(el("span","tag",`<i class="bi bi-dot me-1"></i>${t}`));
-      });
-
-      // Quick overview
-      const qo = document.getElementById("quickOverview");
-      qo.innerHTML = "";
-      qo.appendChild(el("li","",`<strong>M.Tech Dissertation:</strong> ${safeText(PROFILE.education[0]?.highlightValue)}`));
-      qo.appendChild(el("li","",`<strong>B.Tech Project:</strong> <a class="link-underline link-underline-opacity-0" href="${PROFILE.btechProjectRepo.url}" target="_blank" rel="noopener">${PROFILE.btechProjectRepo.title}</a>`));
-      qo.appendChild(el("li","",`<strong>Honours:</strong> ${safeText(PROFILE.honors[0]?.title)} (${safeText(PROFILE.honors[0]?.subtitle)})`));
-      const army = PROFILE.honors.find(h=> (h.title || "").toLowerCase().includes("indian army"));
-      qo.appendChild(el("li","",`<strong>Hackathon:</strong> ${safeText(army?.title)} — ${safeText(army?.subtitle)}`));
-
-      // About
-      document.getElementById("aboutText").textContent =
-        "I work at the intersection of applied offensive security and structured research methodology. My focus is on developing systematic frameworks to model adversary behavior, simulate realistic multi-stage attack pathways, and evaluate security controls in measurable and repeatable ways. Through controlled adversary simulation, I aim to better understand how complex and security-critical systems particularly hybrid IT–OT environments behave when intentionally stressed under adversarial conditions, and how they can be strengthened against sophisticated threats. My approach emphasizes abstraction, methodological rigor, and architectural thinking. All publicly shared material is intentionally sanitized and presented strictly for research, academic review, and conceptual exploration.";
-
-      document.getElementById("aboutAcademic").textContent = "BITS Pilani (M.Tech) • Himalayan University (B.Tech)";
-      document.getElementById("aboutRecognition").textContent = `${safeText(PROFILE.honors[0]?.title)} • ${safeText(PROFILE.honors[1]?.title)}`;
-
-      // LinkedIn note
-      const lnNote = document.getElementById("linkedinNote");
-      if(PROFILE.linkedinIsPrivate){
-        lnNote.textContent = "LinkedIn: Private (shared on request/connection)";
-      } else {
-        lnNote.innerHTML = `LinkedIn: <a class="link-underline link-underline-opacity-0" href="${PROFILE.linkedinUrl}" target="_blank" rel="noopener">View profile</a>`;
-      }
-
-      // Scholar note (demo)
-      const scNote = document.getElementById("scholarNote");
-      scNote.innerHTML = `Google Scholar: <a class="link-underline link-underline-opacity-0" href="${PROFILE.googleScholarUrl}" target="_blank" rel="noopener"></a>`;
-
-      // Research section text/cards
-      document.getElementById("researchText").innerHTML =
-        `My M.Tech dissertation centers on <strong>${safeText(PROFILE.education[0]?.highlightValue)}</strong> and builds toward research directions in adversary simulation, threat modeling for segmented architectures, and repeatable measurement of simulation/emulation coverage.`;
-
-      const rc = document.getElementById("researchCards");
-      rc.innerHTML = "";
-      const researchItems = [
-        { title: "Adversary Simulation", icon: "bi-diagram-3", text: "Scenario-driven modeling of adversary behavior and multi-stage pathways in complex networks." },
-        { title: "Hybrid IT–OT Security", icon: "bi-hdd-network", text: "Architecture-first analysis of segmentation, access pathways, and risk in IT–OT-like systems." },
-        { title: "Measurement & Methodology", icon: "bi-clipboard-data", text: "Repeatability, coverage, and evaluation metrics for simulation/emulation research artifacts." }
-      ];
-      researchItems.forEach(item=>{
-        const col = el("div","col-lg-4");
-        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
-        const body = el("div","card-body");
-        body.appendChild(el("h3","h5 fw-bold",`<i class="bi ${item.icon} me-2"></i>${item.title}`));
-        body.appendChild(el("p","muted mb-0",item.text));
-        card.appendChild(body);
-        col.appendChild(card);
-        rc.appendChild(col);
-      });
-
-      // Research repo callout
-      document.getElementById("researchRepoName").textContent = PROFILE.researchRepo.url.split("/").pop();
-      document.getElementById("researchRepoLink").href = PROFILE.researchRepo.url;
-
-      // Education grid
-      const eg = document.getElementById("educationGrid");
-      eg.innerHTML = "";
-      PROFILE.education.forEach(ed=>{
-        const col = el("div","col-lg-6");
-        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
-        const body = el("div","card-body");
-        const row = el("div","d-flex align-items-start gap-3");
-        const img = el("img","logo");
-        img.src = ed.logoUrl;
-        img.alt = `${ed.institute} logo`;
-
-        const content = el("div","");
-        content.appendChild(el("h3","h5 fw-bold mb-1",ed.title));
-        content.appendChild(el("div","muted",ed.institute));
-
-        if(ed.highlightLabel && ed.highlightValue){
-          const block = el("div","mt-3");
-          block.appendChild(el("div","fw-semibold",ed.highlightLabel));
-          if(ed.highlightLink){
-            block.appendChild(el("div","muted",
-              `<a class="link-underline link-underline-opacity-0" href="${ed.highlightLink}" target="_blank" rel="noopener">${ed.highlightValue}</a>`
-            ));
-          } else {
-            block.appendChild(el("div","muted",ed.highlightValue));
-          }
-          content.appendChild(block);
-        }
-
-        row.appendChild(img);
-        row.appendChild(content);
-        body.appendChild(row);
-        card.appendChild(body);
-        col.appendChild(card);
-        eg.appendChild(col);
-      });
-
-      // Projects grid
-      const pg = document.getElementById("projectsGrid");
-      pg.innerHTML = "";
-
-      function projectCard(p, primary=false){
-        const col = el("div","col-lg-6");
-        const card = el("div","card bg-transparent border-0 glass rounded-4 h-100 card-hover");
-        const body = el("div","card-body");
-        body.appendChild(el("h3","h5 fw-bold mb-2",p.title));
-        body.appendChild(el("p","muted mb-3",p.description));
-
-        const tags = el("div","d-flex flex-wrap gap-2 mb-3");
-        (p.tags || []).forEach(t=>{
-          tags.appendChild(el("span","badge text-bg-secondary",t));
-        });
-        body.appendChild(tags);
-
-        const btn = el("a", primary ? "btn btn-primary" : "btn btn-outline-secondary");
-        btn.href = p.url;
-        btn.target = "_blank";
-        btn.rel = "noopener";
-        btn.innerHTML = `<i class="bi bi-box-arrow-up-right me-2"></i>Open Repo`;
-        body.appendChild(btn);
-
-        card.appendChild(body);
-        col.appendChild(card);
-        return col;
-      }
-
-      pg.appendChild(projectCard(PROFILE.researchRepo, true));
-      pg.appendChild(projectCard(PROFILE.btechProjectRepo, false));
-
-      // Honors grid
-      const hg = document.getElementById("honorsGrid");
-      hg.innerHTML = "";
-      const icons = ["bi-trophy","bi-flag","bi-patch-check","bi-award"];
-      PROFILE.honors.forEach((h, idx)=>{
-        const col = el("div","col-lg-4");
-        const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
-        const body = el("div","card-body");
-        body.appendChild(el("div","d-flex align-items-center gap-3",
-          `<div class="rounded-4 d-flex align-items-center justify-content-center" style="width:52px;height:52px;background: rgba(255,255,255,.08);">
-             <i class="bi ${icons[idx % icons.length]} fs-3"></i>
-           </div>
-           <div>
-             <div class="fw-bold">${h.title}</div>
-             <div class="muted">${h.subtitle || ""}</div>
-           </div>`
-        ));
-        card.appendChild(body);
-        col.appendChild(card);
-        hg.appendChild(col);
-      });
-
-      // Certifications grid (with logos)
-      const cg = document.getElementById("certsGrid");
-      cg.innerHTML = "";
-      if(PROFILE.certifications && PROFILE.certifications.length > 0){
-        PROFILE.certifications.forEach(c=>{
-          const col = el("div","col-lg-4 col-md-6");
-          const card = el("div","card border-0 glass rounded-4 h-100 card-hover");
-          const body = el("div","card-body");
-          const wrap = el("div","cert-item");
-          const img = el("img","cert-logo");
-          img.src = c.logoUrl;
-          img.alt = `${c.name} logo`;
-
-          const info = el("div","");
-          info.appendChild(el("div","fw-bold",c.name));
-          info.appendChild(el("div","muted",c.issuer || ""));
-          wrap.appendChild(img);
-          wrap.appendChild(info);
-          body.appendChild(wrap);
-          card.appendChild(body);
-          col.appendChild(card);
-          cg.appendChild(col);
-        });
-      } else {
-        cg.appendChild(el("div","col-12",`<div class="alert glass mb-0"><strong>Optional:</strong> Add certifications in <span class="kbdish">PROFILE.certifications</span>.</div>`));
-      }
-
-      // Contact: GitHub
-      const contactGithub = document.getElementById("contactGithub");
-      contactGithub.href = PROFILE.githubProfileUrl;
-      contactGithub.textContent = PROFILE.githubProfileUrl.replace("https://","");
-
-      // Contact: Email
-      const emailCard = document.getElementById("emailCard");
-      emailCard.innerHTML = "";
-      if(PROFILE.email && PROFILE.email.trim().length > 0 && PROFILE.email !== "YOUR_EMAIL"){
-        emailCard.appendChild(el("div","p-3 rounded-4 glass",
-          `<div class="small-muted">Email</div>
-           <div class="fw-semibold"><a class="link-underline link-underline-opacity-0" href="mailto:${PROFILE.email}">${PROFILE.email}</a></div>`
-        ));
-      } else {
-        emailCard.appendChild(el("div","p-3 rounded-4 glass",
-          `<div class="small-muted">Email</div>
-           <div class="fw-semibold">Available on request</div>`
-        ));
-      }
-
-      // Contact: LinkedIn
-      const linkedinCard = document.getElementById("linkedinCard");
-      linkedinCard.innerHTML = "";
-      if(PROFILE.linkedinIsPrivate){
-        linkedinCard.appendChild(el("div","p-3 rounded-4 glass",
-          `<div class="small-muted">LinkedIn</div>
-           <div class="fw-semibold"><a href="https://www.linkedin.com/in/supriyo-guha/">Supriyo Guha</a></div>`
-        ));
-      } else {
-        linkedinCard.appendChild(el("div","p-3 rounded-4 glass",
-          `<div class="small-muted">LinkedIn</div>
-           <div class="fw-semibold">
-             <a class="link-underline link-underline-opacity-0" href="${PROFILE.linkedinUrl}" target="_blank" rel="noopener">
-               View profile
-             </a>
-           </div>`
-        ));
-      }
-
-      // Contact: Scholar (demo)
-      const scholarCard = document.getElementById("scholarCard");
-      scholarCard.innerHTML = "";
-      scholarCard.appendChild(el("div","p-3 rounded-4 glass",
-        `<div class="small-muted">Google Scholar</div>
-         <div class="fw-semibold">
-           <!--a class="link-underline link-underline-opacity-0" href="${PROFILE.googleScholarUrl}" target="_blank" rel="noopener">Demo link (update later)</a-->
-         </div>`
-      ));
-
-      // Footer year
-      document.getElementById("y").textContent = new Date().getFullYear();
-    }
-
-    /* =========================
-       INIT
-    ========================== */
-    initSEO();
-    render();
-  </script>
+  document.getElementById('heroTermWrap')?.addEventListener('click', () => heroInput?.focus());
+</script>
 </body>
 </html>
