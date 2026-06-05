@@ -120,7 +120,11 @@ body > nav::before {
 }
 @keyframes prismSlide { 0%{ background-position: 0% 0%; } 100%{ background-position: 300% 0%; } }
 
-/* ── GLASS CARDS ── */
+/* ════════════════════════════════════════════
+   GLASS CARDS
+   Frosted glass / dark card treatment applied
+   to all major card elements per theme
+════════════════════════════════════════════ */
 [data-theme="light"] .stat-panel,
 [data-theme="light"] .terminal-block,
 [data-theme="light"] .edu-card,
@@ -152,110 +156,72 @@ body > nav::before {
   box-shadow: 0 0 0 1px rgba(41,121,255,0.06), 0 4px 24px rgba(0,0,0,0.5);
 }
 
-/* ── CERT CARD HOVER POP-OUT ── */
+/* ════════════════════════════════════════════
+   CERT CARD HOVER POP-OUT
+   Cards lift + scale on hover with neon glow
+   (dark) or frosted shadow lift (light)
+════════════════════════════════════════════ */
 .cert-card {
-  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
-              box-shadow 0.28s ease,
-              border-color 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, border-color 0.2s ease;
   will-change: transform;
 }
 [data-theme="dark"] .cert-card:hover {
   transform: translateY(-6px) scale(1.03);
   border-color: rgba(41,121,255,0.55) !important;
-  box-shadow:
-    0 0 0 1px rgba(41,121,255,0.2),
-    0 12px 40px rgba(0,0,0,0.7),
-    0 0 24px rgba(41,121,255,0.22) !important;
-  z-index: 2;
-  position: relative;
+  box-shadow: 0 0 0 1px rgba(41,121,255,0.2), 0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(41,121,255,0.22) !important;
+  z-index: 2; position: relative;
 }
 [data-theme="light"] .cert-card:hover {
   transform: translateY(-6px) scale(1.03);
   border-color: rgba(0,103,192,0.5) !important;
-  box-shadow:
-    0 1px 0 0 rgba(255,255,255,1) inset,
-    0 -1px 0 0 rgba(0,103,192,0.3) inset,
-    0 16px 48px rgba(0,103,192,0.18),
-    0 4px 16px rgba(0,80,180,0.12) !important;
-  z-index: 2;
-  position: relative;
+  box-shadow: 0 1px 0 0 rgba(255,255,255,1) inset, 0 -1px 0 0 rgba(0,103,192,0.3) inset, 0 16px 48px rgba(0,103,192,0.18), 0 4px 16px rgba(0,80,180,0.12) !important;
+  z-index: 2; position: relative;
 }
-/* Prismatic top line on cert hover */
 .cert-card { position: relative; overflow: hidden; }
 .cert-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--prism-line);
-  background-size: 200% 100%;
-  opacity: 0;
-  transition: opacity 0.3s;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--prism-line); background-size: 200% 100%;
+  opacity: 0; transition: opacity 0.3s;
 }
 .cert-card:hover::before { opacity: 1; }
+[data-theme="dark"] .cert-card:hover .cert-logo { box-shadow: 0 0 16px rgba(41,121,255,0.4); transition: box-shadow 0.3s; }
+[data-theme="light"] .cert-card:hover .cert-logo { box-shadow: 0 4px 12px rgba(0,103,192,0.25); transition: box-shadow 0.3s; }
 
-/* ── CERT LOGO GLOW on hover ── */
-[data-theme="dark"] .cert-card:hover .cert-logo {
-  box-shadow: 0 0 16px rgba(41,121,255,0.4);
-  transition: box-shadow 0.3s;
-}
-[data-theme="light"] .cert-card:hover .cert-logo {
-  box-shadow: 0 4px 12px rgba(0,103,192,0.25);
-  transition: box-shadow 0.3s;
-}
-
-/* ── AWARD ROW HOVER POP-OUT ── */
+/* ════════════════════════════════════════════
+   AWARD ROW HOVER POP-OUT
+   Rows slide right + logo scales on hover
+════════════════════════════════════════════ */
 .award-row {
-  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
-              box-shadow 0.28s ease,
-              border-color 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, border-color 0.2s ease;
   will-change: transform;
 }
 [data-theme="dark"] .award-row:hover {
   transform: translateX(6px) scale(1.012);
   border-left-color: rgba(41,121,255,0.8) !important;
-  box-shadow:
-    -4px 0 18px rgba(41,121,255,0.25),
-    0 0 0 1px rgba(41,121,255,0.12),
-    0 8px 32px rgba(0,0,0,0.6) !important;
+  box-shadow: -4px 0 18px rgba(41,121,255,0.25), 0 0 0 1px rgba(41,121,255,0.12), 0 8px 32px rgba(0,0,0,0.6) !important;
 }
 [data-theme="light"] .award-row:hover {
   transform: translateX(6px) scale(1.012);
   border-left-color: #0067c0 !important;
-  box-shadow:
-    -4px 0 14px rgba(0,103,192,0.2),
-    0 8px 32px rgba(0,100,200,0.1),
-    0 2px 8px rgba(0,80,180,0.07) !important;
+  box-shadow: -4px 0 14px rgba(0,103,192,0.2), 0 8px 32px rgba(0,100,200,0.1), 0 2px 8px rgba(0,80,180,0.07) !important;
 }
+.award-row .award-logo, .award-row .award-logo-placeholder { transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1); }
+.award-row:hover .award-logo, .award-row:hover .award-logo-placeholder { transform: scale(1.12); }
 
-/* Award logo scale on row hover */
-.award-row .award-logo,
-.award-row .award-logo-placeholder {
-  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
-}
-.award-row:hover .award-logo,
-.award-row:hover .award-logo-placeholder {
-  transform: scale(1.12);
-}
-
-/* Existing hover overrides — remove conflicting old rules */
-[data-theme="dark"] .edu-card:hover,
-[data-theme="dark"] .project-card:hover,
-[data-theme="dark"] .contact-link:hover {
+[data-theme="dark"] .edu-card:hover, [data-theme="dark"] .project-card:hover, [data-theme="dark"] .contact-link:hover {
   border-color: rgba(41,121,255,0.4) !important;
   box-shadow: var(--glow-accent), 0 4px 24px rgba(0,0,0,0.5);
 }
-[data-theme="light"] .stat-panel:hover,
-[data-theme="light"] .edu-card:hover,
-[data-theme="light"] .project-card:hover,
-[data-theme="light"] .contact-link:hover {
-  box-shadow:
-    0 1px 0 0 rgba(255,255,255,1) inset,
-    0 -1px 0 0 rgba(0,103,192,0.3) inset,
-    0 12px 40px rgba(0,103,192,0.12),
-    0 4px 12px rgba(0,80,180,0.08);
+[data-theme="light"] .stat-panel:hover, [data-theme="light"] .edu-card:hover, [data-theme="light"] .project-card:hover, [data-theme="light"] .contact-link:hover {
+  box-shadow: 0 1px 0 0 rgba(255,255,255,1) inset, 0 -1px 0 0 rgba(0,103,192,0.3) inset, 0 12px 40px rgba(0,103,192,0.12), 0 4px 12px rgba(0,80,180,0.08);
   border-color: rgba(0,103,192,0.45) !important;
 }
 
-/* ── SKILL BARS ── */
+/* ════════════════════════════════════════════
+   SKILL BARS
+   Neon glow (dark) / gradient + soft glow
+   (light); height 3px with border-radius
+════════════════════════════════════════════ */
 [data-theme="dark"] .skill-bar-fill { box-shadow: 0 0 8px rgba(41,121,255,0.6); }
 [data-theme="dark"] .skill-bar-fill.green { box-shadow: 0 0 8px rgba(0,230,118,0.6); }
 [data-theme="light"] .skill-bar-fill { background: linear-gradient(90deg, #0067c0, #0090d4); box-shadow: 0 0 6px rgba(0,103,192,0.3); }
@@ -264,43 +230,45 @@ body > nav::before {
 [data-theme="dark"] .skill-bar-bg { height: 3px; }
 [data-theme="light"] .skill-bar-fill, [data-theme="dark"] .skill-bar-fill { height: 3px; border-radius: 2px; }
 
-/* ── BUTTONS ── */
+/* ════════════════════════════════════════════
+   BUTTONS
+   Primary: gradient blue with glow
+   Outline: transparent with border
+════════════════════════════════════════════ */
 [data-theme="light"] .btn-primary { background: linear-gradient(135deg, #0078d4, #005fa3); box-shadow: 0 2px 12px rgba(0,103,192,0.3), 0 1px 0 rgba(255,255,255,0.4) inset; color: white; }
 [data-theme="light"] .btn-primary:hover { background: linear-gradient(135deg, #0090e8, #0067c0); box-shadow: 0 4px 20px rgba(0,103,192,0.45); }
 [data-theme="light"] .btn-outline { background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); border: 1px solid rgba(0,103,192,0.3); }
 [data-theme="light"] .btn-outline:hover { background: rgba(255,255,255,0.8); border-color: #0067c0; box-shadow: 0 2px 12px rgba(0,103,192,0.2); }
 [data-theme="dark"] .btn-primary { background: linear-gradient(135deg, #2979ff, #1a54cc); box-shadow: var(--glow-accent); }
 [data-theme="dark"] .btn-primary:hover { background: linear-gradient(135deg, #448aff, #2979ff); box-shadow: 0 0 24px rgba(41,121,255,0.55); }
-
 [data-theme="dark"] .status-dot { background: var(--cyan); box-shadow: var(--glow-cyan); }
 
-/* ── NAV ── */
+/* ════════════════════════════════════════════
+   NAV — THEME-SPECIFIC OVERRIDES
+   Light: Mica glass backdrop-filter
+   Dark:  Deep blur + blue border glow
+════════════════════════════════════════════ */
 [data-theme="light"] nav { background: rgba(235,242,255,0.72) !important; backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8); border-bottom: 1px solid rgba(180,210,245,0.6); box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset, 0 4px 20px rgba(0,100,200,0.06); }
 [data-theme="dark"] nav { background: rgba(10,12,16,0.82) !important; backdrop-filter: blur(18px); border-bottom: 1px solid rgba(41,121,255,0.15); box-shadow: 0 1px 0 rgba(41,121,255,0.08) inset; }
-
 [data-theme="light"] .hero-grid-bg { opacity: 0.18; }
 [data-theme="light"] .hero-grid-bg::after { background: radial-gradient(ellipse 70% 70% at 30% 50%, transparent 30%, rgba(232,237,245,0.95) 100%); }
 [data-theme="dark"] .hero-grid-bg { opacity: 0.22; }
-
 [data-theme="dark"] .terminal-block { background: #050709 !important; border-color: rgba(41,121,255,0.2) !important; box-shadow: 0 0 0 1px rgba(41,121,255,0.08), 0 8px 32px rgba(0,0,0,0.7), inset 0 1px 0 rgba(41,121,255,0.1) !important; }
 [data-theme="dark"] .terminal-block .prompt { color: var(--cyan); text-shadow: var(--glow-cyan); }
 [data-theme="dark"] .terminal-block .out.hi { color: var(--cyan); text-shadow: 0 0 8px rgba(0,229,255,0.4); }
 [data-theme="light"] .terminal-block { background: rgba(245,248,255,0.7) !important; border-color: rgba(0,103,192,0.2) !important; }
 [data-theme="light"] .terminal-block .prompt { color: #107c10; }
 [data-theme="light"] .terminal-block .out.hi { color: #0067c0; }
-
 [data-theme="light"] .section-title { color: #0f1a2e; }
 [data-theme="light"] .hero-name { color: #0f1a2e !important; }
 [data-theme="light"] .edu-degree { color: #0f1a2e !important; }
 [data-theme="light"] .project-name { color: #0f1a2e !important; }
 [data-theme="light"] .award-name { color: #0f1a2e !important; }
 [data-theme="light"] .cert-name { color: #0f1a2e !important; }
-
 [data-theme="dark"] .section-line { background: linear-gradient(90deg, rgba(41,121,255,0.3), transparent); }
 [data-theme="light"] .section-line { background: linear-gradient(90deg, rgba(0,103,192,0.25), transparent); }
 [data-theme="dark"] .nav-logo { text-shadow: 0 0 12px rgba(41,121,255,0.5); }
 [data-theme="dark"] .skill-group-title { text-shadow: 0 0 8px rgba(41,121,255,0.35); }
-
 [data-theme="light"] .lang-pill { background: rgba(255,255,255,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(0,103,192,0.2); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset; }
 [data-theme="light"] .lang-pill:hover { background: rgba(255,255,255,0.85); border-color: #0067c0; color: #0067c0; box-shadow: 0 2px 8px rgba(0,103,192,0.15), 0 1px 0 rgba(255,255,255,0.9) inset; }
 [data-theme="dark"] .lang-pill:hover { border-color: rgba(41,121,255,0.6); color: var(--cyan); box-shadow: 0 0 10px rgba(41,121,255,0.2); }
@@ -311,22 +279,21 @@ body > nav::before {
 [data-theme="light"] .coming-soon-block { border-color: rgba(0,103,192,0.15) !important; }
 [data-theme="light"] footer { background: rgba(230,238,252,0.6); backdrop-filter: blur(12px); }
 [data-theme="dark"] footer { border-top-color: rgba(41,121,255,0.12); }
-
-[data-theme="light"] .edu-card,
-[data-theme="light"] .project-card { position: relative; overflow: hidden; }
-[data-theme="light"] .edu-card::before,
-[data-theme="light"] .project-card::before {
+[data-theme="light"] .edu-card, [data-theme="light"] .project-card { position: relative; overflow: hidden; }
+[data-theme="light"] .edu-card::before, [data-theme="light"] .project-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: var(--prism-line); background-size: 200% 100%;
   opacity: 0; transition: opacity 0.3s;
 }
-[data-theme="light"] .edu-card:hover::before,
-[data-theme="light"] .project-card:hover::before { opacity: 1; }
-
+[data-theme="light"] .edu-card:hover::before, [data-theme="light"] .project-card:hover::before { opacity: 1; }
 [data-theme="dark"] .award-row { border-left: 2px solid rgba(41,121,255,0.3) !important; }
 [data-theme="light"] .award-row { border-left: 2px solid rgba(0,103,192,0.2) !important; }
 
-/* ── THEME TOGGLE ── */
+/* ════════════════════════════════════════════
+   THEME TOGGLE
+   SVG sun/moon icons + animated pill knob
+   Knob slides left (dark) / right (light)
+════════════════════════════════════════════ */
 .theme-switch-wrap { display: flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; }
 .theme-icon { width: 18px; height: 18px; flex-shrink: 0; transition: opacity 0.35s, transform 0.4s; }
 [data-theme="light"] .sun-icon  { opacity: 1;   transform: scale(1) rotate(0deg); }
@@ -340,7 +307,11 @@ body > nav::before {
 [data-theme="dark"] .toggle-knob { background: #2979ff; box-shadow: 0 0 8px rgba(41,121,255,0.7); transform: translateX(0px); }
 [data-theme="light"] .toggle-knob { background: #0067c0; box-shadow: 0 2px 6px rgba(0,103,192,0.4); transform: translateX(22px); }
 
-/* ── NAV ── */
+/* ════════════════════════════════════════════
+   NAV — BASE STYLES
+   Fixed top bar, backdrop blur, z-index 1000
+   Prism animated stripe on top edge via ::before
+════════════════════════════════════════════ */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
 .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .nav-links { display: flex; gap: 28px; list-style: none; }
@@ -349,7 +320,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-tag { font-size: 10px; letter-spacing: 0.12em; color: var(--text-faint); border: 1px solid var(--text-faint); padding: 3px 9px; text-transform: uppercase; }
 
-/* ── HERO ── */
+/* ════════════════════════════════════════════
+   HERO SECTION
+   Two-column grid (left: text, right: panel)
+   Full viewport height, grid background,
+   fade-in animations on load
+════════════════════════════════════════════ */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 100px 80px 80px; position: relative; gap: 60px; }
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.25; transition: background-image 0.35s; }
 .hero-grid-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, transparent 40%, var(--bg) 100%); }
@@ -372,16 +348,37 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 .btn-outline { background: transparent; color: var(--text-dim); border: 1px solid var(--border2); }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── STAT PANEL ── */
+/* ════════════════════════════════════════════
+   STAT PANEL (hero right)
+   JSON-style profile summary card with
+   auto-typed values on page load
+   Service Length auto-increments from Dec 2014
+════════════════════════════════════════════ */
 .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; }
 .stat-panel { background: var(--bg2); border: 1px solid var(--border); padding: 22px 26px; transition: background 0.35s, border-color 0.35s; }
 .stat-panel-header { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
 .stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .stat-row:last-child { border-bottom: none; }
 .stat-label { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; }
-.stat-value { font-size: 12px; color: var(--accent); font-weight: 700; }
+.stat-value { font-size: 12px; color: var(--accent); font-weight: 700; min-width: 4px; }
 .stat-value.gold { color: var(--gold); }
 .stat-value.green { color: var(--green); }
+
+/* ════════════════════════════════════════════
+   TYPING CURSOR
+   Block cursor ▋ shown during stat value
+   typing animation; removed after done
+════════════════════════════════════════════ */
+.stat-value.typing::after {
+  content: '▋';
+  display: inline-block;
+  margin-left: 1px;
+  vertical-align: 1px;
+  font-size: 10px;
+  animation: blink 0.7s step-end infinite;
+}
+.stat-value.typing.done::after { display: none; }
+
 .terminal-block { background: var(--bg); border: 1px solid var(--border); padding: 18px 22px; font-size: 11px; line-height: 1.8; transition: background 0.35s; }
 [data-theme="dark"] .terminal-block { background: #060a0d; }
 .terminal-block .prompt { color: var(--green); }
@@ -389,7 +386,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 .terminal-block .out { color: var(--text-dim); padding-left: 16px; }
 .terminal-block .out.hi { color: var(--accent); }
 
-/* ── SECTION BASE ── */
+/* ════════════════════════════════════════════
+   SECTION BASE STYLES
+   Shared padding, section header layout,
+   numbered labels, gradient divider line
+════════════════════════════════════════════ */
 section { padding: 90px 80px; border-top: 1px solid var(--border); transition: border-color 0.35s; }
 .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 56px; }
 .section-num { font-size: 10px; letter-spacing: 0.2em; color: var(--text-faint); }
@@ -397,13 +398,23 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 [data-theme="dark"] .section-title { color: #e8f4ff; }
 .section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* ── RESEARCH ── */
+/* ════════════════════════════════════════════
+   RESEARCH SECTION
+   "Coming Soon" placeholder block
+   Replace with paper cards when published
+════════════════════════════════════════════ */
 .coming-soon-block { background: var(--bg2); border: 1px solid var(--border); padding: 48px; text-align: center; }
 .coming-soon-block .cs-icon { font-size: 36px; margin-bottom: 16px; }
 .coming-soon-block .cs-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: var(--text-dim); letter-spacing: 0.08em; }
 .coming-soon-block .cs-sub { font-size: 11px; color: var(--text-faint); margin-top: 8px; }
 
-/* ── EDUCATION ── */
+/* ════════════════════════════════════════════
+   EDUCATION SECTION
+   Auto-fit card grid; each card has logo,
+   institution, degree, detail, optional badge
+   PhD card is commented out — uncomment on
+   admission to activate
+════════════════════════════════════════════ */
 .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 28px; transition: border-color 0.2s, background 0.35s; }
 .edu-card:hover { border-color: var(--border2); }
@@ -419,7 +430,12 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 .edu-card.phd-future { opacity: 0.5; border-style: dashed; }
 .phd-comment-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px; }
 
-/* ── PROJECTS ── */
+/* ════════════════════════════════════════════
+   PROJECTS SECTION
+   Two-column card grid; each card has
+   project number, name, desc, stack tags
+   and optional repo hyperlink
+════════════════════════════════════════════ */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
 .project-card { background: var(--bg2); border: 1px solid var(--border); padding: 26px; transition: border-color 0.2s, background 0.35s; }
 .project-card:hover { border-color: var(--border2); }
@@ -432,7 +448,13 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 12px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .project-link:hover { border-color: var(--accent); }
 
-/* ── SKILLS ── */
+/* ════════════════════════════════════════════
+   SKILLS SECTION
+   Three sub-blocks:
+   1. Technical skill bars (scroll-animated)
+   2. Language bars (green)
+   3. Programming languages terminal display
+════════════════════════════════════════════ */
 .skills-wrapper { display: flex; flex-direction: column; gap: 48px; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .skill-group-title { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
@@ -449,7 +471,12 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 .lang-pill { font-size: 11px; letter-spacing: 0.08em; padding: 6px 16px; background: var(--bg2); border: 1px solid var(--border2); color: var(--text-dim); text-transform: uppercase; transition: all 0.2s; }
 .lang-pill:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── AWARDS ── */
+/* ════════════════════════════════════════════
+   HONOURS & AWARDS SECTION
+   Flex column of award rows; each row has
+   logo img (replace src), title, description
+   Left border accent + slide-right on hover
+════════════════════════════════════════════ */
 .awards-list { display: flex; flex-direction: column; gap: 12px; }
 .award-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px; background: var(--bg2); border: 1px solid var(--border); transition: background 0.35s; }
 .award-logo { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; background: white; border-radius: 4px; padding: 3px; }
@@ -459,7 +486,12 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 [data-theme="dark"] .award-name { color: #e8f4ff; }
 .award-desc { font-size: 11px; color: var(--text-dim); line-height: 1.6; }
 
-/* ── CERTIFICATIONS ── */
+/* ════════════════════════════════════════════
+   CERTIFICATIONS SECTION
+   Auto-fill grid of cert cards; each has
+   logo img (replace src), name, issuer
+   Pop-up + prism line on hover
+════════════════════════════════════════════ */
 .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
 .cert-card { background: var(--bg2); border: 1px solid var(--border); padding: 18px; text-align: center; }
 .cert-logo { width: 40px; height: 40px; object-fit: contain; margin: 0 auto 10px; display: block; background: white; border-radius: 4px; padding: 4px; transition: box-shadow 0.3s; }
@@ -468,7 +500,12 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 [data-theme="dark"] .cert-name { color: #e8f4ff; }
 .cert-issuer { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; }
 
-/* ── CONTACT ── */
+/* ════════════════════════════════════════════
+   CONTACT SECTION
+   Two-column: copy left, link cards right
+   Each link card: img logo + SVG fallback
+   Replace PASTE_*_URL_HERE placeholders
+════════════════════════════════════════════ */
 .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .contact-copy { font-size: 13px; color: var(--text-dim); line-height: 1.9; }
 .contact-copy p { margin-bottom: 16px; }
@@ -479,12 +516,20 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 .contact-logo { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; border-radius: 3px; }
 .contact-logo-fallback { width: 20px; height: 20px; flex-shrink: 0; align-items: center; justify-content: center; color: var(--text-dim); }
 
-/* ── FOOTER ── */
+/* ════════════════════════════════════════════
+   FOOTER
+   Simple flex row, faint text both sides
+════════════════════════════════════════════ */
 footer { border-top: 1px solid var(--border); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; }
 footer .foot-left { font-size: 10px; color: var(--text-faint); letter-spacing: 0.1em; }
 footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
-/* ── ANIMATIONS ── */
+/* ════════════════════════════════════════════
+   ANIMATIONS
+   fadeUp: section entry animation
+   blink:  cursor blink (stat panel + cursor)
+   pulse:  status dot breathing
+════════════════════════════════════════════ */
 @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 .fade-up { opacity:0; animation: fadeUp 0.65s ease forwards; }
 .fade-up.d1{animation-delay:.1s} .fade-up.d2{animation-delay:.25s} .fade-up.d3{animation-delay:.4s} .fade-up.d4{animation-delay:.55s} .fade-up.d5{animation-delay:.7s}
@@ -493,7 +538,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 6px var(--green); animation:pulse 2s ease infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.35)} }
 
-/* ── LANG TERMINAL ── */
+/* ════════════════════════════════════════════
+   LANG TERMINAL (programming languages)
+   macOS-style terminal window showing
+   ls -1 output with filename + extension
+   coloured separately for readability
+════════════════════════════════════════════ */
 .lang-terminal { border: 1px solid var(--border); overflow: hidden; max-width: 600px; }
 .lt-bar { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg3); border-bottom: 1px solid var(--border); }
 .lt-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
@@ -520,7 +570,13 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 @keyframes blink-inline { 0%,100%{opacity:1} 50%{opacity:0} }
 .lt-cursor-inline { display: inline-block; width: 7px; height: 12px; background: var(--accent); animation: blink-inline 1.1s step-end infinite; vertical-align: -1px; margin-left: 4px; }
 
-/* ── HERO MINI TERMINAL ── */
+/* ════════════════════════════════════════════
+   HERO MINI TERMINAL
+   Interactive terminal on hero right panel
+   Supports: help, ls, ls -la, cat, pwd,
+   whoami, date, clear + Tab autocomplete
+   Hidden files (CTF flags/PCAP) go in FS{}
+════════════════════════════════════════════ */
 .hero-term-wrap { border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; }
 [data-theme="dark"] .hero-term-wrap { border-color: rgba(41,121,255,0.25); box-shadow: 0 0 0 1px rgba(41,121,255,0.06), 0 8px 32px rgba(0,0,0,0.6); }
 [data-theme="light"] .hero-term-wrap { box-shadow: 0 4px 24px rgba(0,100,200,0.09), 0 1px 4px rgba(0,80,180,0.05); }
@@ -555,7 +611,41 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 .hero-term-input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); caret-color: var(--accent); }
 .hero-term-input::placeholder { color: var(--text-faint); }
 
-/* ── RESPONSIVE ── */
+/* ════════════════════════════════════════════
+   EDUCATION PROJECT BUTTON
+   Inline link button shown on edu cards that
+   have an associated project/repo URL
+════════════════════════════════════════════ */
+.edu-project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  background: transparent;
+  transition: all 0.22s;
+}
+.edu-project-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(41,121,255,0.06);
+}
+[data-theme="light"] .edu-project-btn:hover {
+  background: rgba(0,103,192,0.06);
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — max-width 900px
+   Single column hero, hidden nav links,
+   stacked skills/contact grids
+════════════════════════════════════════════ */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
@@ -568,7 +658,11 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══════════════════════════════════════
+     NAV
+     Fixed top navigation bar
+     Contains: logo | nav links | PhD tag | theme toggle
+═══════════════════════════════════════ -->
 <nav>
   <div class="nav-logo">Supriyo Guha</div>
   <ul class="nav-links">
@@ -602,7 +696,13 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════
+     HERO SECTION
+     Left: Hindi name, English name, title,
+           description paragraph, CTA buttons
+     Right: Stat panel (auto-typed values) +
+            Interactive mini terminal
+═══════════════════════════════════════ -->
 <section id="top" style="border-top:none; padding-top:0;">
   <div class="hero">
     <div class="hero-grid-bg"></div>
@@ -611,7 +711,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
         <div class="hero-eyebrow-line"></div>
         <span><span class="status-dot"></span>&nbsp; Available for PhD — Research Collaboration</span>
       </div>
-      <div class="hero-name-hindi fade-up d2">सुप्रियो गुहा</div>
+      <div class="hero-name-hindi fade-up d2">सुप्रिय  गुहा</div>
       <div class="hero-name fade-up d2">Supriyo<br><em>Guha</em></div>
       <div class="hero-title fade-up d3">Information Security Researcher &amp; Practitioner</div>
       <p class="hero-desc fade-up d4">
@@ -627,12 +727,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     <div class="hero-right fade-up d3">
       <div class="stat-panel">
         <div class="stat-panel-header">// profile_summary.json</div>
-        <div class="stat-row"><span class="stat-label">Current Position</span><span class="stat-value">Govt. of India — Infosec Analyst</span></div>
-        <div class="stat-row"><span class="stat-label">Service Length</span><span class="stat-value" id="serviceLength">Calculating…</span></div>
-        <div class="stat-row"><span class="stat-label">M.Tech Grade</span><span class="stat-value gold">Excellent</span></div>
-        <div class="stat-row"><span class="stat-label">CEH Master</span><span class="stat-value gold">Hall of Fame 2025</span></div>
-        <div class="stat-row"><span class="stat-label">Location</span><span class="stat-value">New Delhi, India</span></div>
-        <div class="stat-row"><span class="stat-label">TryHackMe</span><span class="stat-value green">Top 10% — 2024</span></div>
+        <div class="stat-row"><span class="stat-label">Current Position</span><span class="stat-value" id="sv-position"></span></div>
+        <div class="stat-row"><span class="stat-label">Working Experience</span><span class="stat-value" id="serviceLength">Calculating…</span></div>
+        <div class="stat-row"><span class="stat-label">M.Tech Grade</span><span class="stat-value gold" id="sv-mtech"></span></div>
+        <div class="stat-row"><span class="stat-label">CEH Master</span><span class="stat-value gold" id="sv-ceh"></span></div>
+        <div class="stat-row"><span class="stat-label">Location</span><span class="stat-value" id="sv-location"></span></div>
+        <div class="stat-row"><span class="stat-label">TryHackMe</span><span class="stat-value green" id="sv-thm"></span></div>
       </div>
       <!-- HERO INTERACTIVE MINI-TERMINAL -->
       <div class="hero-term-wrap" id="heroTermWrap">
@@ -657,7 +757,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
 </section>
 
-<!-- RESEARCH -->
+<!-- ═══════════════════════════════════════
+     SECTION 01 — RESEARCH
+     Currently a "Coming Soon" placeholder
+     Replace .coming-soon-block with paper
+     cards when publications are available
+═══════════════════════════════════════ -->
 <section id="research">
   <div class="section-header">
     <span class="section-num">01</span>
@@ -671,7 +776,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- ═══════════════════════════════════════
+     SECTION 02 — EDUCATION
+     PhD card: commented out — uncomment and
+     update src/text on admission
+     BITS Pilani M.Tech + Himalayan B.Tech
+═══════════════════════════════════════ -->
 <section id="education">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -691,29 +801,43 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
       <div class="edu-detail">Proposed Research: "Adversarial Modelling and Measurement of Enterprise and Hybrid IT–OT Infrastructure Compromise Pathways"</div>
     </div>
     -->
+
+    <!-- M.Tech — BITS Pilani -->
     <div class="edu-card">
       <div class="edu-logo-row">
         <img class="edu-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/120px-BITS_Pilani-Logo.svg.png" alt="BITS Pilani" onerror="this.outerHTML='<div class=\'edu-logo-placeholder\'>🎓</div>'">
         <span class="edu-institution">BITS Pilani (WILP), India</span>
       </div>
-      <div class="edu-year">2022 – 2024</div>
+      <div class="edu-year">2024 – 2026</div>
       <div class="edu-degree">M.Tech — Software Systems (Cyber Security)</div>
       <div class="edu-detail">Dissertation: <em>"Offensive Simulation on Critical Infrastructure Attacks"</em><br>Multi-site Red Team simulation across segmented IT and OT environments.</div>
       <span class="edu-badge">Dissertation: Excellent</span>
     </div>
+
+<!-- B.Tech - Himalayan University -->
     <div class="edu-card">
       <div class="edu-logo-row">
         <img class="edu-logo" src="https://www.himalayanuniversity.com/images/logo.png" alt="Himalayan University" onerror="this.outerHTML='<div class=\'edu-logo-placeholder\'>🏔</div>'">
         <span class="edu-institution">Himalayan University, India</span>
       </div>
-      <div class="edu-year">B.Tech</div>
-      <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+      <div class="edu-year">2018 – 2022</div>
+      <div class="edu-degree">B.Tech — Computer Science</div>
       <div class="edu-detail">Project: <em>Advanced Key Logger</em> — Research-oriented implementation of keystroke interception techniques for security analysis.</div>
+      <a href="https://github.com/supriyo-guha/advance-keylogger-project.git" target="_blank" class="edu-project-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        View Project Repository ↗
+      </a>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ═══════════════════════════════════════
+     SECTION 03 — PROJECTS & LAB WORK
+     P-01: Three-Site IT/OT Red Team Lab
+     P-02: Advanced Key Logger
+     Add more .project-card divs as needed
+     Replace href="#" in project-link with repo URL
+═══════════════════════════════════════ -->
 <section id="projects">
   <div class="section-header">
     <span class="section-num">03</span>
@@ -739,12 +863,17 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
         <span class="stack-tag">Persistence</span><span class="stack-tag">Evasion</span>
       </div>
       <!-- HYPERLINK PLACEHOLDER: replace href="#" with actual repo URL -->
-      <a href="#" class="project-link">View Repository ↗</a>
+      <a href="https://github.com/supriyo-guha/advance-keylogger-project.git" target="_blank" class="project-link">View Repository ↗</a>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- ═══════════════════════════════════════
+     SECTION 04 — TECHNICAL PROFICIENCY
+     Skill bars animate on scroll into view
+     Language bars use green fill
+     Programming languages shown as terminal ls output
+═══════════════════════════════════════ -->
 <section id="skills">
   <div class="section-header">
     <span class="section-num">04</span>
@@ -812,7 +941,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
 </section>
 
-<!-- HONOURS -->
+<!-- ═══════════════════════════════════════
+     SECTION 05 — HONOURS & RECOGNITION
+     Each .award-row: replace img src with
+     actual logo URL; onerror shows emoji fallback
+     Rows slide right on hover
+═══════════════════════════════════════ -->
 <section id="awards">
   <div class="section-header">
     <span class="section-num">05</span>
@@ -823,35 +957,41 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     <div class="award-row">
       <img class="award-logo" src="https://cdn-icons-png.flaticon.com/512/1378/1378582.png" alt="M.Tech" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🏆</div>'">
       <div class="award-content">
-        <div class="award-name">M.Tech Dissertation Graded "Excellent" — BITS Pilani (WILP)</div>
+        <div class="award-name">M.Tech Dissertation Graded <em style="color:var(--gold)">"Excellent"</em> — BITS Pilani (WILP)</div>
         <div class="award-desc">Thesis on multi-site offensive simulation of critical infrastructure attacks received the highest evaluation grade.</div>
       </div>
     </div>
     <div class="award-row">
       <img class="award-logo" src="https://cdn.eccouncil.org/wp-content/uploads/2025/07/26064114/CEH-HOF-Mobile-Banner-1.jpg" alt="CEH Master" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🏆</div>'">
       <div class="award-content">
-        <div class="award-name">CEH Master Hall of Fame 2025 — EC-Council, USA</div>
-        <div class="award-desc">Inducted into EC-Council's CEH Master Hall of Fame 2025 for achieving CEH Master certification with distinction.</div>
+        <div class="award-name">CEH Master Hall of Fame <em style="color:var(--gold)">2025</em> — EC-Council, USA</div>
+        <div class="award-desc">Recognized in the CEH Master Hall of Fame 2025, ranking among the Top 100 CEH Master Professionals world-wide and globally recognized for the contribution to the ethical hacking and cybersecurity.</div>
       </div>
     </div>
     <div class="award-row">
       <img class="award-logo" src="https://assets.tryhackme.com/img/THMlogo.png" alt="TryHackMe" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🔐</div>'">
       <div class="award-content">
-        <div class="award-name">TryHackMe — Top 10% in 2024</div>
+        <div class="award-name">TryHackMe — <em style="color:var(--gold)">Top 10%</em> in 2024</div>
         <div class="award-desc">Ranked in the top 10% of all TryHackMe users globally in 2024.</div>
       </div>
     </div>
     <div class="award-row">
       <img class="award-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/ADGPI_Indian_Army.svg/3840px-ADGPI_Indian_Army.svg.png" alt="Indian Army" onerror="this.outerHTML='<div class=\'award-logo-placeholder\'>🇮🇳</div>'">
       <div class="award-content">
-        <div class="award-name">Indian Army Hackathon — Cyber Ranakshyetram 2021 — Finalist</div>
+        <div class="award-name">Indian Army Hackathon — Cyber Ranakshyetram 2021 — <em style="color:var(--gold)">Finalist</em></div>
         <div class="award-desc">Selected as a finalist in the Indian Army's national cyber hackathon Cyber Ranakshyetram 2021.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
+<!-- ═══════════════════════════════════════
+     SECTION 06 — PROFESSIONAL CERTIFICATIONS
+     Each .cert-card: replace img src with
+     actual badge/logo URL
+     Cards pop up + show prism line on hover
+     Planned pipeline note at bottom
+═══════════════════════════════════════ -->
 <section id="certs">
   <div class="section-header">
     <span class="section-num">06</span>
@@ -859,42 +999,36 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     <div class="section-line"></div>
   </div>
   <div class="certs-grid">
-    <!-- ══ CERT 1: CRTA ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://cyberwarfare.live/wp-content/uploads/2024/04/CRTA-150x150.png" alt="CRTA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">⚔️</div>
       <div class="cert-name">CRTA</div>
       <div class="cert-issuer">CyberWarFare Labs</div>
     </div>
-    <!-- ══ CERT 2: CRT-ID ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://cyberwarfare.live/wp-content/uploads/2024/04/CRT-ID-150x150.png" alt="CRT-ID" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">🛡</div>
       <div class="cert-name">CRT-ID</div>
       <div class="cert-issuer">CyberWarFare Labs</div>
     </div>
-    <!-- ══ CERT 3: CEH Master ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://johnjhacking.com/uploads/cehmaster_5fb43496785f-002.png" alt="CEH Master" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">🏆</div>
       <div class="cert-name">CEH Master</div>
       <div class="cert-issuer">EC-Council</div>
     </div>
-    <!-- ══ CERT 4: CHFI ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://firebrand.training/media/eqbbrfcy/chfi-official-ec-council-training-v9.png" alt="CHFI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">🔍</div>
       <div class="cert-name">CHFI</div>
       <div class="cert-issuer">EC-Council</div>
     </div>
-    <!-- ══ CERT 5: CCNA ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/twitter_thumb_201604_ccna_600.png" alt="CCNA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">🌐</div>
       <div class="cert-name">CCNA</div>
       <div class="cert-issuer">Cisco</div>
     </div>
-    <!-- ══ CERT 6: NSD Digital Forensics ══ Replace src with actual logo URL -->
     <div class="cert-card">
       <img class="cert-logo" src="https://isacfoundation.org/wp-content/uploads/2017/05/nsd-logo-400px.png" alt="NSD Digital Forensics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="cert-logo-placeholder" style="display:none;">🔬</div>
@@ -907,7 +1041,13 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </p>
 </section>
 
-<!-- CONTACT -->
+<!-- ═══════════════════════════════════════
+     SECTION 07 — CONTACT
+     Left: descriptive copy
+     Right: link cards for Portfolio, GitHub,
+            LinkedIn, Google Scholar
+     Replace all PASTE_*_URL_HERE placeholders
+═══════════════════════════════════════ -->
 <section id="contact">
   <div class="section-header">
     <span class="section-num">07</span>
@@ -916,31 +1056,28 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
   <div class="contact-inner">
     <div class="contact-copy">
-      <p>If you are a faculty member or researcher working in adversary simulation, hybrid IT/OT security, or cyber-physical systems, I am actively seeking PhD supervision and research collaboration.</p>
-      <p>My research is grounded in operational security practice (~11 years, Government of India), with a specific interest in developing falsifiable, measurement-driven models of multi-stage infrastructure compromise. Empirical lab validation is central to the proposed methodology.</p>
+      <p>If you are a faculty member or researcher working in adversary simulation, hybrid IT-OT security, or cyber-physical systems, I am actively seeking Ph.D. supervision and research collaboration.</p>
+      <p>My research is grounded in operational security practice (over 11 years, Government of India), with a specific interest in developing falsifiable, measurement-driven models of multi-stage infrastructure compromise. Empirical lab validation is central to the proposed methodology.</p>
       <p style="color:var(--text-faint); font-size:11px;">// All content on this portfolio represents sanitized, unclassified research work.</p>
     </div>
     <div class="contact-links">
       <a href="https://supriyo-guha.github.io/Supriyo-Guha-porfolio/" target="_blank" class="contact-link">
-        <img class="contact-logo" src="PASTE_PORTFOLIO_LOGO_URL_HERE" alt="Portfolio" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <img class="contact-logo" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Portfolio" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
         <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" stroke="currentColor" stroke-width="1.8"/></svg></span>
         <span>Portfolio — supriyo-guha.github.io</span>
       </a>
-      <!-- Replace href and src with your GitHub profile URL and logo -->
-      <a href="PASTE_GITHUB_PROFILE_URL_HERE" target="_blank" class="contact-link">
+      <a href="https://github.com/supriyo-guha/Offensive-Adversary-Simulation-Critical-Infrastructures.git" target="_blank" class="contact-link">
         <img class="contact-logo" src="PASTE_GITHUB_LOGO_URL_HERE" alt="GitHub" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
         <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
         <span>GitHub — Research Repositories</span>
       </a>
-      <!-- Replace href and src with your LinkedIn profile URL and logo -->
-      <a href="PASTE_LINKEDIN_PROFILE_URL_HERE" target="_blank" class="contact-link">
-        <img class="contact-logo" src="PASTE_LINKEDIN_LOGO_URL_HERE" alt="LinkedIn" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+      <a href="https://www.linkedin.com/in/supriyo-guha" target="_blank" class="contact-link">
+        <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1280px-LinkedIn_icon.svg.png" alt="LinkedIn" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
         <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
         <span>LinkedIn — Supriyo Guha</span>
       </a>
-      <!-- Replace href and src with your Google Scholar URL and logo -->
-      <a href="PASTE_GOOGLE_SCHOLAR_URL_HERE" target="_blank" class="contact-link">
-        <img class="contact-logo" src="PASTE_GOOGLE_SCHOLAR_LOGO_URL_HERE" alt="Google Scholar" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+      <a href="https://m.media-amazon.com/images/I/71UgwaC4DjL.jpg" target="_blank" class="contact-link">
+        <img class="contact-logo" src="https://images.seeklogo.com/logo-png/48/1/google-scholar-logo-png_seeklogo-484488.png" alt="Google Scholar" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
         <span class="contact-logo-fallback" style="display:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg></span>
         <span>Google Scholar</span>
       </a>
@@ -948,13 +1085,30 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     FOOTER
+     Copyright line + topic tags
+═══════════════════════════════════════ -->
 <footer>
   <div class="foot-left">© Supriyo Guha — Research-oriented portfolio — New Delhi, India</div>
   <div class="foot-right">Adversarial Simulation · Critical Infrastructure Security</div>
 </footer>
 
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     1. Theme toggle (localStorage persist)
+     2. Service length auto-increment (Dec 2014)
+     3. Stat panel typing animation (5 values)
+     4. Skill bar scroll animation (IntersectionObserver)
+     5. Hero parallax on mousemove
+     6. Hero mini terminal (FS, commands, history, tab)
+═══════════════════════════════════════ -->
 <script>
-  // ── THEME TOGGLE ──
+  // ════════════════════════════════════════
+  // THEME TOGGLE
+  // Toggles data-theme between dark/light
+  // Persists choice to localStorage
+  // ════════════════════════════════════════
   function toggleTheme() {
     const html = document.documentElement;
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -966,7 +1120,12 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     if (saved) document.documentElement.setAttribute('data-theme', saved);
   })();
 
-  // ── SERVICE LENGTH — counts from December 2014 ──
+  // ════════════════════════════════════════
+  // SERVICE LENGTH
+  // Calculates years + months since Dec 2014
+  // Updates every hour via setInterval
+  // To change start date: edit JOIN_DATE below
+  // ════════════════════════════════════════
   const JOIN_DATE = new Date(2014, 11, 1);
   function updateServiceLength() {
     const now = new Date();
@@ -983,7 +1142,46 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   updateServiceLength();
   setInterval(updateServiceLength, 3600000);
 
-  // ── SKILL BAR ANIMATION ──
+  // ════════════════════════════════════════
+  // STAT PANEL TYPING ANIMATION
+  // Each stat value types in sequentially
+  // Order: Position → M.Tech → CEH → Location → THM
+  // (Service Length is live-calculated, not typed)
+  // To add/change values: edit STAT_QUEUE below
+  // ════════════════════════════════════════
+  // Order: Current Position → (Service Length already live) → M.Tech Grade → CEH Master → Location → TryHackMe
+  const STAT_QUEUE = [
+    { id: 'sv-position', text: 'Govt. of India — Infosec Analyst', delay: 600  },
+    { id: 'sv-mtech',    text: 'Excellent',                         delay: 1600 },
+    { id: 'sv-ceh',      text: 'Hall of Fame 2025',                 delay: 2500 },
+    { id: 'sv-location', text: 'New Delhi, India',                  delay: 3400 },
+    { id: 'sv-thm',      text: 'Top 10% — 2024',                   delay: 4300 },
+  ];
+
+  function typeValue(el, text, speed) {
+    el.classList.add('typing');
+    el.textContent = '';
+    let i = 0;
+    const iv = setInterval(() => {
+      el.textContent += text[i++];
+      if (i >= text.length) {
+        clearInterval(iv);
+        setTimeout(() => el.classList.add('done'), 500);
+      }
+    }, speed);
+  }
+
+  STAT_QUEUE.forEach(({ id, text, delay }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    setTimeout(() => typeValue(el, text, 36), delay);
+  });
+
+  // ════════════════════════════════════════
+  // SKILL BAR ANIMATION
+  // IntersectionObserver triggers width
+  // transition when bars scroll into view
+  // ════════════════════════════════════════
   const barObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -996,13 +1194,32 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     const el = document.getElementById(id); if (el) barObs.observe(el);
   });
 
-  // ── HERO PARALLAX ──
+  // ════════════════════════════════════════
+  // HERO PARALLAX
+  // Grid background shifts slightly on
+  // mousemove for subtle depth effect
+  // ════════════════════════════════════════
   document.addEventListener('mousemove', e => {
     const grid = document.querySelector('.hero-grid-bg'); if (!grid) return;
     grid.style.transform = `translate(${(e.clientX/window.innerWidth-.5)*10}px,${(e.clientY/window.innerHeight-.5)*10}px)`;
   });
 
-  // ── HERO MINI TERMINAL ──
+  // ════════════════════════════════════════
+  // HERO MINI TERMINAL
+  // Simulated bash terminal on hero right
+  //
+  // FS{} = virtual filesystem
+  //   Visible files: shown with ls
+  //   Hidden files:  shown with ls -la only
+  //   Add CTF flags / PCAP links by
+  //   uncommenting the hidden file examples
+  //
+  // HERO_CMDS{} = available commands
+  //   Extend by adding new keys
+  //
+  // heroKey() handles keyboard events:
+  //   Enter = run, ↑↓ = history, Tab = complete
+  // ════════════════════════════════════════
   const heroOutput = document.getElementById('heroOutput');
   const heroInput  = document.getElementById('heroInput');
   const heroHist   = []; let heroHistIdx = -1;
