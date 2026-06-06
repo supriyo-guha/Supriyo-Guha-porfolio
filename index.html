@@ -122,8 +122,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    GLASS CARDS
-   Frosted glass / dark card treatment applied
-   to all major card elements per theme
 ════════════════════════════════════════════ */
 [data-theme="light"] .stat-panel,
 [data-theme="light"] .terminal-block,
@@ -158,8 +156,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    CERT CARD HOVER POP-OUT
-   Cards lift + scale on hover with neon glow
-   (dark) or frosted shadow lift (light)
 ════════════════════════════════════════════ */
 .cert-card {
   transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, border-color 0.2s ease;
@@ -189,7 +185,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    AWARD ROW HOVER POP-OUT
-   Rows slide right + logo scales on hover
 ════════════════════════════════════════════ */
 .award-row {
   transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, border-color 0.2s ease;
@@ -219,8 +214,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    SKILL BARS
-   Neon glow (dark) / gradient + soft glow
-   (light); height 3px with border-radius
 ════════════════════════════════════════════ */
 [data-theme="dark"] .skill-bar-fill { box-shadow: 0 0 8px rgba(41,121,255,0.6); }
 [data-theme="dark"] .skill-bar-fill.green { box-shadow: 0 0 8px rgba(0,230,118,0.6); }
@@ -232,8 +225,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    BUTTONS
-   Primary: gradient blue with glow
-   Outline: transparent with border
 ════════════════════════════════════════════ */
 [data-theme="light"] .btn-primary { background: linear-gradient(135deg, #0078d4, #005fa3); box-shadow: 0 2px 12px rgba(0,103,192,0.3), 0 1px 0 rgba(255,255,255,0.4) inset; color: white; }
 [data-theme="light"] .btn-primary:hover { background: linear-gradient(135deg, #0090e8, #0067c0); box-shadow: 0 4px 20px rgba(0,103,192,0.45); }
@@ -245,8 +236,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    NAV — THEME-SPECIFIC OVERRIDES
-   Light: Mica glass backdrop-filter
-   Dark:  Deep blur + blue border glow
 ════════════════════════════════════════════ */
 [data-theme="light"] nav { background: rgba(235,242,255,0.72) !important; backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8); border-bottom: 1px solid rgba(180,210,245,0.6); box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset, 0 4px 20px rgba(0,100,200,0.06); }
 [data-theme="dark"] nav { background: rgba(10,12,16,0.82) !important; backdrop-filter: blur(18px); border-bottom: 1px solid rgba(41,121,255,0.15); box-shadow: 0 1px 0 rgba(41,121,255,0.08) inset; }
@@ -291,8 +280,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    THEME TOGGLE
-   SVG sun/moon icons + animated pill knob
-   Knob slides left (dark) / right (light)
 ════════════════════════════════════════════ */
 .theme-switch-wrap { display: flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; }
 .theme-icon { width: 18px; height: 18px; flex-shrink: 0; transition: opacity 0.35s, transform 0.4s; }
@@ -309,8 +296,6 @@ body > nav::before {
 
 /* ════════════════════════════════════════════
    NAV — BASE STYLES
-   Fixed top bar, backdrop blur, z-index 1000
-   Prism animated stripe on top edge via ::before
 ════════════════════════════════════════════ */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
 .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
@@ -322,9 +307,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 
 /* ════════════════════════════════════════════
    HERO SECTION
-   Two-column grid (left: text, right: panel)
-   Full viewport height, grid background,
-   fade-in animations on load
 ════════════════════════════════════════════ */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 100px 80px 80px; position: relative; gap: 60px; }
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.25; transition: background-image 0.35s; }
@@ -340,7 +322,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 [data-theme="dark"] .hero-name-hindi { color: rgba(160,184,232,0.45); }
 [data-theme="light"] .hero-name-hindi { color: rgba(58,74,104,0.45); }
 .hero-title { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; color: var(--text-dim); margin-bottom: 32px; }
-.hero-desc { font-size: 13px; line-height: 1.9; color: var(--text-dim); max-width: 480px; margin-bottom: 40px; }
+.hero-desc { font-size: 13px; line-height: 1.9; color: var(--text-dim); max-width: 480px; margin-bottom: 40px; text-align: justify; }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
 .btn-primary { background: var(--accent); color: var(--bg); }
@@ -350,8 +332,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 
 /* ════════════════════════════════════════════
    STAT PANEL (hero right)
-   JSON-style profile summary card with
-   auto-typed values on page load
    Service Length auto-increments from Dec 2014
 ════════════════════════════════════════════ */
 .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; }
@@ -366,8 +346,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 
 /* ════════════════════════════════════════════
    TYPING CURSOR
-   Block cursor ▋ shown during stat value
-   typing animation; removed after done
+   Block cursor shown during stat typing animation
 ════════════════════════════════════════════ */
 .stat-value.typing::after {
   content: '▋';
@@ -388,8 +367,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 
 /* ════════════════════════════════════════════
    SECTION BASE STYLES
-   Shared padding, section header layout,
-   numbered labels, gradient divider line
 ════════════════════════════════════════════ */
 section { padding: 90px 80px; border-top: 1px solid var(--border); transition: border-color 0.35s; }
 .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 56px; }
@@ -400,8 +377,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    RESEARCH SECTION
-   "Coming Soon" placeholder block
-   Replace with paper cards when published
 ════════════════════════════════════════════ */
 .coming-soon-block { background: var(--bg2); border: 1px solid var(--border); padding: 48px; text-align: center; }
 .coming-soon-block .cs-icon { font-size: 36px; margin-bottom: 16px; }
@@ -410,10 +385,7 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    EDUCATION SECTION
-   Auto-fit card grid; each card has logo,
-   institution, degree, detail, optional badge
-   PhD card is commented out — uncomment on
-   admission to activate
+   PhD card commented out — uncomment on admission
 ════════════════════════════════════════════ */
 .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 28px; transition: border-color 0.2s, background 0.35s; }
@@ -432,9 +404,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    PROJECTS SECTION
-   Two-column card grid; each card has
-   project number, name, desc, stack tags
-   and optional repo hyperlink
 ════════════════════════════════════════════ */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
 .project-card { background: var(--bg2); border: 1px solid var(--border); padding: 26px; transition: border-color 0.2s, background 0.35s; }
@@ -450,10 +419,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    SKILLS SECTION
-   Three sub-blocks:
-   1. Technical skill bars (scroll-animated)
-   2. Language bars (green)
-   3. Programming languages terminal display
 ════════════════════════════════════════════ */
 .skills-wrapper { display: flex; flex-direction: column; gap: 48px; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -473,9 +438,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    HONOURS & AWARDS SECTION
-   Flex column of award rows; each row has
-   logo img (replace src), title, description
-   Left border accent + slide-right on hover
 ════════════════════════════════════════════ */
 .awards-list { display: flex; flex-direction: column; gap: 12px; }
 .award-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px; background: var(--bg2); border: 1px solid var(--border); transition: background 0.35s; }
@@ -488,9 +450,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    CERTIFICATIONS SECTION
-   Auto-fill grid of cert cards; each has
-   logo img (replace src), name, issuer
-   Pop-up + prism line on hover
 ════════════════════════════════════════════ */
 .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
 .cert-card { background: var(--bg2); border: 1px solid var(--border); padding: 18px; text-align: center; }
@@ -502,9 +461,7 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    CONTACT SECTION
-   Two-column: copy left, link cards right
-   Each link card: img logo + SVG fallback
-   Replace PASTE_*_URL_HERE placeholders
+   Replace all PASTE_*_URL_HERE placeholders
 ════════════════════════════════════════════ */
 .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .contact-copy { font-size: 13px; color: var(--text-dim); line-height: 1.9; }
@@ -518,7 +475,6 @@ section { padding: 90px 80px; border-top: 1px solid var(--border); transition: b
 
 /* ════════════════════════════════════════════
    FOOTER
-   Simple flex row, faint text both sides
 ════════════════════════════════════════════ */
 footer { border-top: 1px solid var(--border); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; }
 footer .foot-left { font-size: 10px; color: var(--text-faint); letter-spacing: 0.1em; }
@@ -526,9 +482,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 /* ════════════════════════════════════════════
    ANIMATIONS
-   fadeUp: section entry animation
-   blink:  cursor blink (stat panel + cursor)
-   pulse:  status dot breathing
 ════════════════════════════════════════════ */
 @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 .fade-up { opacity:0; animation: fadeUp 0.65s ease forwards; }
@@ -540,9 +493,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 /* ════════════════════════════════════════════
    LANG TERMINAL (programming languages)
-   macOS-style terminal window showing
-   ls -1 output with filename + extension
-   coloured separately for readability
 ════════════════════════════════════════════ */
 .lang-terminal { border: 1px solid var(--border); overflow: hidden; max-width: 600px; }
 .lt-bar { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg3); border-bottom: 1px solid var(--border); }
@@ -572,10 +522,10 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 /* ════════════════════════════════════════════
    HERO MINI TERMINAL
-   Interactive terminal on hero right panel
-   Supports: help, ls, ls -la, cat, pwd,
-   whoami, date, clear + Tab autocomplete
-   Hidden files (CTF flags/PCAP) go in FS{}
+   FS{} = virtual filesystem
+   Hidden files only visible via ls -la
+   .flag.txt fetched live from /flag.txt at runtime
+   — never stored in this HTML source
 ════════════════════════════════════════════ */
 .hero-term-wrap { border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; }
 [data-theme="dark"] .hero-term-wrap { border-color: rgba(41,121,255,0.25); box-shadow: 0 0 0 1px rgba(41,121,255,0.06), 0 8px 32px rgba(0,0,0,0.6); }
@@ -610,42 +560,24 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 .htp-ds  { color: var(--text-dim); margin-left: 2px; }
 .hero-term-input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); caret-color: var(--accent); }
 .hero-term-input::placeholder { color: var(--text-faint); }
-.hero-desc { font-size: 13px; line-height: 1.9; color: var(--text-dim); max-width: 480px; margin-bottom: 40px; text-align: justify; }
 
 /* ════════════════════════════════════════════
    EDUCATION PROJECT BUTTON
-   Inline link button shown on edu cards that
-   have an associated project/repo URL
+   Inline link button on edu cards with repo
 ════════════════════════════════════════════ */
 .edu-project-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 14px;
-  padding: 7px 14px;
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid var(--border2);
-  color: var(--text-dim);
-  background: transparent;
-  transition: all 0.22s;
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 14px; padding: 7px 14px;
+  font-family: 'Space Mono', monospace; font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--border2);
+  color: var(--text-dim); background: transparent; transition: all 0.22s;
 }
-.edu-project-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(41,121,255,0.06);
-}
-[data-theme="light"] .edu-project-btn:hover {
-  background: rgba(0,103,192,0.06);
-}
+.edu-project-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(41,121,255,0.06); }
+[data-theme="light"] .edu-project-btn:hover { background: rgba(0,103,192,0.06); }
 
 /* ════════════════════════════════════════════
    RESPONSIVE — max-width 900px
-   Single column hero, hidden nav links,
-   stacked skills/contact grids
 ════════════════════════════════════════════ */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
@@ -661,8 +593,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      NAV
-     Fixed top navigation bar
-     Contains: logo | nav links | PhD tag | theme toggle
 ═══════════════════════════════════════ -->
 <nav>
   <div class="nav-logo">Supriyo Guha</div>
@@ -699,10 +629,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      HERO SECTION
-     Left: Hindi name, English name, title,
-           description paragraph, CTA buttons
-     Right: Stat panel (auto-typed values) +
-            Interactive mini terminal
 ═══════════════════════════════════════ -->
 <section id="top" style="border-top:none; padding-top:0;">
   <div class="hero">
@@ -761,9 +687,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 01 — RESEARCH
-     Currently a "Coming Soon" placeholder
-     Replace .coming-soon-block with paper
-     cards when publications are available
 ═══════════════════════════════════════ -->
 <section id="research">
   <div class="section-header">
@@ -780,9 +703,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 02 — EDUCATION
-     PhD card: commented out — uncomment and
-     update src/text on admission
-     BITS Pilani M.Tech + Himalayan B.Tech
+     PhD card: commented out — uncomment on admission
 ═══════════════════════════════════════ -->
 <section id="education">
   <div class="section-header">
@@ -816,7 +737,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
       <span class="edu-badge">Dissertation: Excellent</span>
     </div>
 
-<!-- B.Tech - Himalayan University -->
+    <!-- B.Tech — Himalayan University -->
     <div class="edu-card">
       <div class="edu-logo-row">
         <img class="edu-logo" src="https://www.himalayanuniversity.com/images/logo.png" alt="Himalayan University" onerror="this.outerHTML='<div class=\'edu-logo-placeholder\'>🏔</div>'">
@@ -825,6 +746,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
       <div class="edu-year">2018 – 2022</div>
       <div class="edu-degree">B.Tech — Computer Science</div>
       <div class="edu-detail">Project: <em>Advanced Key Logger</em> — Research-oriented implementation of keystroke interception techniques for security analysis.</div>
+      <!-- Replace href with actual repo URL -->
       <a href="https://github.com/supriyo-guha/advance-keylogger-project.git" target="_blank" class="edu-project-btn">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
         View Project Repository ↗
@@ -835,10 +757,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 03 — PROJECTS & LAB WORK
-     P-01: Three-Site IT/OT Red Team Lab
-     P-02: Advanced Key Logger
-     Add more .project-card divs as needed
-     Replace href="#" in project-link with repo URL
 ═══════════════════════════════════════ -->
 <section id="projects">
   <div class="section-header">
@@ -864,7 +782,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
         <span class="stack-tag">Python</span><span class="stack-tag">C</span><span class="stack-tag">Windows API</span>
         <span class="stack-tag">Persistence</span><span class="stack-tag">Evasion</span>
       </div>
-      <!-- HYPERLINK PLACEHOLDER: replace href="#" with actual repo URL -->
       <a href="https://github.com/supriyo-guha/advance-keylogger-project.git" target="_blank" class="project-link">View Repository ↗</a>
     </div>
   </div>
@@ -872,9 +789,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 04 — TECHNICAL PROFICIENCY
-     Skill bars animate on scroll into view
-     Language bars use green fill
-     Programming languages shown as terminal ls output
 ═══════════════════════════════════════ -->
 <section id="skills">
   <div class="section-header">
@@ -945,9 +859,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 05 — HONOURS & RECOGNITION
-     Each .award-row: replace img src with
-     actual logo URL; onerror shows emoji fallback
-     Rows slide right on hover
 ═══════════════════════════════════════ -->
 <section id="awards">
   <div class="section-header">
@@ -989,10 +900,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 06 — PROFESSIONAL CERTIFICATIONS
-     Each .cert-card: replace img src with
-     actual badge/logo URL
-     Cards pop up + show prism line on hover
-     Planned pipeline note at bottom
 ═══════════════════════════════════════ -->
 <section id="certs">
   <div class="section-header">
@@ -1045,10 +952,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      SECTION 07 — CONTACT
-     Left: descriptive copy
-     Right: link cards for Portfolio, GitHub,
-            LinkedIn, Google Scholar
-     Replace all PASTE_*_URL_HERE placeholders
 ═══════════════════════════════════════ -->
 <section id="contact">
   <div class="section-header">
@@ -1089,7 +992,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
 <!-- ═══════════════════════════════════════
      FOOTER
-     Copyright line + topic tags
 ═══════════════════════════════════════ -->
 <footer>
   <div class="foot-left">© Supriyo Guha — Research-oriented portfolio — New Delhi, India</div>
@@ -1101,15 +1003,15 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
      1. Theme toggle (localStorage persist)
      2. Service length auto-increment (Dec 2014)
      3. Stat panel typing animation (5 values)
-     4. Skill bar scroll animation (IntersectionObserver)
+     4. Skill bar scroll animation
      5. Hero parallax on mousemove
-     6. Hero mini terminal (FS, commands, history, tab)
+     6. Hero mini terminal
+        — .flag.txt fetched live from /flag.txt
+        — never stored in this HTML source
 ═══════════════════════════════════════ -->
 <script>
   // ════════════════════════════════════════
   // THEME TOGGLE
-  // Toggles data-theme between dark/light
-  // Persists choice to localStorage
   // ════════════════════════════════════════
   function toggleTheme() {
     const html = document.documentElement;
@@ -1124,9 +1026,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   // ════════════════════════════════════════
   // SERVICE LENGTH
-  // Calculates years + months since Dec 2014
-  // Updates every hour via setInterval
-  // To change start date: edit JOIN_DATE below
+  // Counts from December 2014 — edit JOIN_DATE to change
   // ════════════════════════════════════════
   const JOIN_DATE = new Date(2014, 11, 1);
   function updateServiceLength() {
@@ -1146,12 +1046,8 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   // ════════════════════════════════════════
   // STAT PANEL TYPING ANIMATION
-  // Each stat value types in sequentially
   // Order: Position → M.Tech → CEH → Location → THM
-  // (Service Length is live-calculated, not typed)
-  // To add/change values: edit STAT_QUEUE below
   // ════════════════════════════════════════
-  // Order: Current Position → (Service Length already live) → M.Tech Grade → CEH Master → Location → TryHackMe
   const STAT_QUEUE = [
     { id: 'sv-position', text: 'Govt. of India — Infosec Analyst', delay: 600  },
     { id: 'sv-mtech',    text: 'Excellent',                         delay: 1600 },
@@ -1181,8 +1077,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   // ════════════════════════════════════════
   // SKILL BAR ANIMATION
-  // IntersectionObserver triggers width
-  // transition when bars scroll into view
   // ════════════════════════════════════════
   const barObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(e => {
@@ -1198,8 +1092,6 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   // ════════════════════════════════════════
   // HERO PARALLAX
-  // Grid background shifts slightly on
-  // mousemove for subtle depth effect
   // ════════════════════════════════════════
   document.addEventListener('mousemove', e => {
     const grid = document.querySelector('.hero-grid-bg'); if (!grid) return;
@@ -1208,19 +1100,14 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   // ════════════════════════════════════════
   // HERO MINI TERMINAL
-  // Simulated bash terminal on hero right
   //
   // FS{} = virtual filesystem
-  //   Visible files: shown with ls
-  //   Hidden files:  shown with ls -la only
-  //   Add CTF flags / PCAP links by
-  //   uncommenting the hidden file examples
+  //   Visible files : shown with ls
+  //   Hidden files  : shown with ls -la / ls -al only
   //
-  // HERO_CMDS{} = available commands
-  //   Extend by adding new keys
-  //
-  // heroKey() handles keyboard events:
-  //   Enter = run, ↑↓ = history, Tab = complete
+  // .flag.txt is fetched live from /flag.txt on the server.
+  // Create flag.txt in your GitHub Pages repo root.
+  // The flag content will NEVER appear in this HTML source.
   // ════════════════════════════════════════
   const heroOutput = document.getElementById('heroOutput');
   const heroInput  = document.getElementById('heroInput');
@@ -1228,13 +1115,13 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
 
   const FS = {
     'research_proposal.txt': [
-      { cls:'hto-hi',  t:'Adversarial Modelling and Measurement of' },
-      { cls:'hto-hi',  t:'Enterprise and Hybrid IT–OT Infrastructure' },
-      { cls:'hto-hi',  t:'Compromise Pathways' },
+      { cls:'hto-hi',  t:'Adversarial Simulation and Analysis of' },
+      { cls:'hto-hi',  t:'Enterprise and Hybrid IT–OT Infrastructures' },
+      { cls:'hto-hi',  t:'A Measurement and Modelling Approach' },
       { cls:'hto-dim', t:'─────────────────────────────────────────' },
       { cls:'hto-out', t:'Author  : Supriyo Guha' },
       { cls:'hto-out', t:'Status  : Under Review' },
-      { cls:'hto-out', t:'Venue   : PhD Application — CSE (Cyber Security)' },
+      { cls:'hto-out', t:'Venue   : Ph.D. Application — CSE (Cyber Security)' },
       { cls:'hto-out', t:'Method  : Empirical lab-validated simulation' },
     ],
     'readme.md': [
@@ -1245,28 +1132,46 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     ],
     'skills.json': [
       { cls:'hto-dim', t:'{' },
-      { cls:'hto-out', t:'  "adversary_simulation": 80,' },
-      { cls:'hto-out', t:'  "active_directory":     80,' },
-      { cls:'hto-out', t:'  "vapt":                 80,' },
-      { cls:'hto-out', t:'  "c2_frameworks":        80,' },
+      { cls:'hto-out', t:'  "Adversary-Simulation": 80,' },
+      { cls:'hto-out', t:'  "Active-Directory":     80,' },
+      { cls:'hto-out', t:'  "VA&PT":                80,' },
+      { cls:'hto-out', t:'  "C2_frameworks":        80,' },
       { cls:'hto-out', t:'  "ics_scada":            70,' },
+      { cls:'hto-out', t:'  "OSINT":                70,' },
       { cls:'hto-out', t:'  "digital_forensics":    70' },
       { cls:'hto-dim', t:'}' },
     ],
     'contact.txt': [
       { cls:'hto-out', t:'Portfolio : supriyo-guha.github.io/Supriyo-Guha-porfolio/' },
-      { cls:'hto-out', t:'GitHub    : PASTE_GITHUB_PROFILE_URL_HERE' },
-      { cls:'hto-out', t:'LinkedIn  : PASTE_LINKEDIN_PROFILE_URL_HERE' },
-      { cls:'hto-out', t:'Scholar   : PASTE_GOOGLE_SCHOLAR_URL_HERE' },
+      { cls:'hto-out', t:'GitHub    : https://github.com/supriyo-guha' },
+      { cls:'hto-out', t:'LinkedIn  : https://www.linkedin.com/in/supriyo-guha' },
+      { cls:'hto-out', t:'Scholar   : COMING SOON' },
     ],
-    // ── HIDDEN FILES — add CTF flags / PCAP challenges here ──
-    // '.flag.txt': [
-    //   { cls:'hto-flag', t:'FLAG{y0u_f0und_th3_h1dd3n_fl4g}' },
-    // ],
-    // '.pcap_challenge_1.txt': [
-    //   { cls:'hto-warn', t:'[PCAP Challenge 01 — available post-PhD admission]' },
-    //   { cls:'hto-dim',  t:'Download: wget https://YOUR_URL/challenge_01.pcap' },
-    // ],
+
+    // ── HIDDEN FILES ──────────────────────────────────────────────────────
+    // .flag.txt is fetched live from /flag.txt on the server at runtime.
+    // To set up: create flag.txt in the root of your GitHub Pages repo.
+    // The flag string never appears in this HTML source code.
+    '.flag.txt': async () => {
+      try {
+        const r = await fetch('/flag/.flag.txt');
+        if (!r.ok) throw new Error('not found');
+        const t = await r.text();
+        return [
+          { cls:'hto-dim',  t:'┌─ Mentorship Challenge ─────────────────────────┐' },
+          { cls:'hto-out',  t:'│  Solve this to request B.Tech/M.Tech mentorship │' },
+          { cls:'hto-dim',  t:'└────────────────────────────────────────────────┘' },
+          { cls:'hto-flag', t:t.trim() },
+          { cls:'hto-dim',  t:'// DM on LinkedIn with this flag to request mentorship' },
+        ];
+      } catch {
+        return [{ cls:'hto-err', t:'flag.txt: Permission denied' }];
+      }
+    },
+
+    // '.pcap_challenge_1.txt': async () => {
+    //   — future PCAP challenge, available post-PhD admission —
+    // },
   };
 
   const VISIBLE_FILES = ['research_proposal.txt','readme.md','skills.json','contact.txt'];
@@ -1281,7 +1186,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
       { cls:'hto-out', t:'  whoami       — identity' },
       { cls:'hto-out', t:'  clear        — clear terminal' },
       { cls:'hto-out', t:'  date         — current date/time' },
-      { cls:'hto-dim', t:'  (Hidden files via ls -la)' },
+      { cls:'hto-dim', t:'  (Hidden files via ls -la or ls -al)' },
     ],
     ls: () => VISIBLE_FILES.map(f => ({ cls:'hto-out', t:`  ${f}` })),
     'ls -la': () => {
@@ -1290,8 +1195,9 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
       ALL_FILES.filter(f => !VISIBLE_FILES.includes(f)).forEach(f => lines.push({ cls:'hto-flag', t:`-rw------- 1 supriyo sec  ${f}` }));
       return lines;
     },
-    'ls -l': () => HERO_CMDS['ls -la'](),
-    'ls -a': () => HERO_CMDS['ls -la'](),
+    'ls -l':  () => HERO_CMDS['ls -la'](),
+    'ls -a':  () => HERO_CMDS['ls -la'](),
+    'ls -al': () => HERO_CMDS['ls -la'](),  // alias — same as ls -la
     pwd:    () => [{ cls:'hto-out', t:'/home/supriyo/portfolio' }],
     whoami: () => [{ cls:'hto-ok',  t:'supriyo_guha  |  Information Security Analyst  |  Govt. of India' }],
     date:   () => [{ cls:'hto-out', t: new Date().toString() }],
@@ -1319,14 +1225,30 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     heroHist.unshift(cmd); heroHistIdx = -1;
     heroEcho(cmd);
     const lower = cmd.toLowerCase();
+
     if (lower.startsWith('cat ')) {
+      // ── ASYNC-AWARE cat handler ──────────────────────────────────────
+      // FS entries can be a static array OR an async function.
+      // Static arrays are printed directly.
+      // Async functions (e.g. .flag.txt) are awaited before printing.
       const fname = cmd.slice(4).trim();
-      FS[fname] ? heroPrint(FS[fname]) : heroPrint([{ cls:'hto-err', t:`cat: ${fname}: No such file or directory` }]);
+      if (FS[fname]) {
+        const entry = FS[fname];
+        if (typeof entry === 'function') {
+          // async fetch — result arrives after the blank line below
+          Promise.resolve(entry()).then(lines => { if (lines) heroPrint(lines); });
+        } else {
+          heroPrint(entry);
+        }
+      } else {
+        heroPrint([{ cls:'hto-err', t:`cat: ${fname}: No such file or directory` }]);
+      }
     } else if (HERO_CMDS[lower]) {
       const r = HERO_CMDS[lower](); if (r) heroPrint(r);
     } else {
       heroPrint([{ cls:'hto-err', t:`bash: ${cmd}: command not found` }]);
     }
+
     const blank = document.createElement('div'); blank.style.height = '4px';
     heroOutput.appendChild(blank); heroOutput.scrollTop = heroOutput.scrollHeight;
   }
