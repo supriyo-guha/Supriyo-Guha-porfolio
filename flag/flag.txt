@@ -1,5 +1,0 @@
-Students who want mentorship for B.Tech / M.Tech can solve this problem and find the hidden flag
-┌─ Mentorship Challenge ────────────────────────┐
-│  Decode this to request mentorship:           │
-│  fXQ0eXNfYTNxcTF1XzN1Z19xYWgwc19oMGx7VE5ZUw== │
-└───────────────────────────────────────────────┘
