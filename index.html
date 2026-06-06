@@ -1154,7 +1154,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
     // The flag string never appears in this HTML source code.
     '.flag.txt': async () => {
       try {
-        const r = await fetch('/flag/.flag.txt');
+        const r = await fetch('https://raw.githubusercontent.com/supriyo-guha/Supriyo-Guha-porfolio/main/flag/.flag.txt');
         if (!r.ok) throw new Error('not found');
         const t = await r.text();
         return [
