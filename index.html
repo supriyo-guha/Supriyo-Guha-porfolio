@@ -724,6 +724,17 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
   <div class="nav-right">
     <!-- <span class="nav-tag">PhD Applicant</span> -->
     <div class="theme-switch-wrap" onclick="toggleTheme()" role="button" aria-label="Toggle theme" title="Toggle theme">
+
+      <!-- Moon icon positioned on the right end of the toggle track -->
+      <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="#a0b8e8" stroke="#a0b8e8" stroke-width="0.5"/>
+      </svg>
+
+      <button class="toggle-track" id="themeBtn" aria-label="Toggle theme">
+        <span class="toggle-knob" id="toggleKnob"></span>
+      </button>
+
+      <!-- Sun icon positioned on the left end of the toggle track -->
       <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" fill="#ffca28"/>
         <g stroke="#ffca28" stroke-width="1.8" stroke-linecap="round">
@@ -733,12 +744,7 @@ footer .foot-right { font-size: 10px; color: var(--text-faint); }
           <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
         </g>
       </svg>
-      <button class="toggle-track" id="themeBtn" aria-label="Toggle theme">
-        <span class="toggle-knob" id="toggleKnob"></span>
-      </button>
-      <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="#a0b8e8" stroke="#a0b8e8" stroke-width="0.5"/>
-      </svg>
+      
     </div>
   </div>
 </nav>
